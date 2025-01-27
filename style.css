@@ -52,8 +52,12 @@ button:hover {
 }
 .header_menu a {
     margin-left: 15px;
-    color: white;
+    color: rgb(14, 13, 13);
     font-weight: bold;
+
+  background-color: #c0bdbd;
+  border-radius: 5px;
+  font-size: 25px;
 }
 
 .header_menu a:hover {
