@@ -51,13 +51,17 @@ button:hover {
     font-size: 40px;
 }
 .header_menu a {
-    margin-left: 15px;
-    color: rgb(14, 13, 13);
-    font-weight: bold;
-     height: 20px;
-     background-color: #c0bdbd;
-     border-radius: 5px;
-     font-size: 25px;
+    bottom: 10px;
+    right: 10px; 
+    background-color: #f9fdfa;
+    color: #0b0c0b;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 0.9em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: large;
+    font-family: serif;
+  
 }
 
 .header_menu a:hover {
@@ -102,14 +106,14 @@ button:hover {
     position: absolute; /* Position absolue */
     bottom: 10px;
     right: 10px; 
-    background-color: #e0f7e4;
-    color: #317a41;
+    background-color: #9b9b9b;
+    color: #020101;
     padding: 5px 10px;
     border-radius: 50px;
     font-size: 0.9em;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
+    box-shadow: 0 2px 4px rgba(211, 80, 80, 0.1);
 }
+
 
 .carte img {
     width: 100%;
@@ -136,9 +140,18 @@ button:hover {
 }
 
 .conteneur-texte {
-    background-color: bisque;
+    background-color: rgb(185, 185, 184);
     padding: 16px; /* Ajoute de l'espace autour du texte */
     text-align: center; /* Centre le texte */
+    color: #020101;
+    
+}
+.conteneur-texte p{
+    color: #020101;
+}
+
+.temps-box p{
+    color: #020101;
 }
 /* Responsive */
 
