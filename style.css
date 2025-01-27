@@ -2,7 +2,7 @@
 
 /* Style général */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Roboto;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@ body {
 }
 
 h1, h3 {
-    color: #2c3e50;
+    color: #131414;
 }
 
 a {
@@ -54,10 +54,10 @@ button:hover {
     margin-left: 15px;
     color: rgb(14, 13, 13);
     font-weight: bold;
-
-  background-color: #c0bdbd;
-  border-radius: 5px;
-  font-size: 25px;
+     height: 20px;
+     background-color: #c0bdbd;
+     border-radius: 5px;
+     font-size: 25px;
 }
 
 .header_menu a:hover {
@@ -70,7 +70,7 @@ button:hover {
 .Accueil {
     text-align: center;
     padding: 40px 20px;
-    background-color: #ecf0f1;
+    background-color: #F4EBDC;
     margin-bottom: 30px;
 }
 
@@ -98,6 +98,12 @@ button:hover {
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
 }
+.temps-box{
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    
+}
 
 .carte img {
     width: 100%;
@@ -111,15 +117,11 @@ button:hover {
 }
 
 .carte p {
-    padding: 0 15px;
+   
     color: #7f8c8d;
     font-size: 0.9em;
 }
 
-.carte button {
-    margin: 15px 0;
-    width: 90%;
-}
 
 /* Effet au survol */
 .carte:hover {
@@ -127,6 +129,11 @@ button:hover {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
+.conteneur-texte {
+    background-color: bisque;
+    padding: 16px; /* Ajoute de l'espace autour du texte */
+    text-align: center; /* Centre le texte */
+}
 /* Responsivité */
 @media (max-width: 768px) {
     .header-logo {
