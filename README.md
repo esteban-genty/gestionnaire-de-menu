@@ -1,1 +1,0 @@
-Carteo ( Gestionnaire de menu )
