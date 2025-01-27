@@ -46,6 +46,7 @@ button:hover {
 
 .header-logo h1 {
     margin: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .header-logo a{
     font-size: 40px;
