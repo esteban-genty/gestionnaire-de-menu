@@ -1,0 +1,72 @@
+.lobster-regular {
+    font-family: 'Lobster', serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --main-font: 'Roboto', sans-serif;
+    --title-font: 'Lobster', sans-serif;
+
+    --main-bg-color: #EE7121;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #F4EBDC;
+    height: 100vh;
+    font-family: var(--main-font);
+    main {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            img {
+                width: 30%;
+                height: auto;
+            }
+        }
+        h1 {
+            font-family: var(--title-font);
+        }
+    }
+        .formsection {
+            width: 50%;
+            height: fit-content;
+            display: flex;
+            justify-content: center;
+            /* background-color: #EE7121; */
+            border-radius: 20px;
+            form {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                label {
+                    margin : 20px 0 5px 0;
+                }
+                input {
+                    font-size: 16px;
+                    padding: 10px;
+                    border-radius: 5px;
+                    border: none;
+                    transition: 0.5s ease;
+                }
+                input:focus {
+                    border: var(--main-bg-color) 1px solid;
+                }
+                button {
+                    margin: 20px;
+                    width: 40%;
+                }
+            }
+    }
+}
