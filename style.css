@@ -93,7 +93,9 @@ button:hover {
     margin: 0 auto;
     
 }
-
+.carte:hover .conteneur-texte {
+    display: block;
+}
 .carte {
     background-color: white;
     border-radius: 2px;
@@ -103,6 +105,7 @@ button:hover {
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
     width: 300px;
+    cursor: pointer;
   
 }
 .temps-box{
@@ -143,11 +146,11 @@ button:hover {
 }
 
 .conteneur-texte {
-    background-color: rgb(185, 185, 184);
-    padding: 16px; /* Ajoute de l'espace autour du texte */
-    text-align: center; /* Centre le texte */
-    color: #020101;
-    
+    display: none;
+    margin-top: 10px;
+    background: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
 }
 .conteneur-texte p{
     color: #020101;
