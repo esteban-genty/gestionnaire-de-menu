@@ -99,10 +99,16 @@ button:hover {
     position: relative;
 }
 .temps-box{
-    position: absolute;
-    right: 10px;
-    bottom: 0;
-    
+    position: absolute; /* Position absolue */
+    bottom: 10px;
+    right: 10px; 
+    background-color: #e0f7e4;
+    color: #317a41;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 0.9em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
 }
 
 .carte img {
@@ -123,7 +129,7 @@ button:hover {
 }
 
 
-/* Effet au survol */
+/* petit effet de survol */
 .carte:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
@@ -134,7 +140,9 @@ button:hover {
     padding: 16px; /* Ajoute de l'espace autour du texte */
     text-align: center; /* Centre le texte */
 }
-/* Responsivité */
+/* Responsive */
+
+
 @media (max-width: 768px) {
     .header-logo {
         flex-direction: column;
