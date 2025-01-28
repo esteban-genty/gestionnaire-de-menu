@@ -8,7 +8,7 @@
     <meta name="keywords" content="Carteo, Recette, Restaurant, Gestion de recette">
     <meta name="author" content="Estéban, Antoine, Lamine, Sébastien">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carteo - Recettes</title>
+    <title>Carteo - Ajout Recettes</title>
 
     <!-- Fichier styles -->
     <link rel="stylesheet" href="header.css">
@@ -36,63 +36,60 @@
                 $result = $bddPDO->query($requete); 
             ?>
             <select name="categories" id="categories">
+                <option value="choisir-categories">Choisir Categorie</option>
                 <?php
                     while ($row = $result->fetch(PDO::FETCH_NUM)) {
-                        echo "<option value='" . htmlspecialchars($row[0], ENT_QUOTES) . "'>" . htmlspecialchars($row[0], ENT_QUOTES) . "</option>";
+                        echo "<option value='" . $row[0] . "'>" . $row[0] . "</option>";
                     }
                 ?>
             </select>
 
-            <label for="titre">Titre de la recette</label>
-            <input type="text" name="titre" required>
+            <input placeholder="Titre" type="text" name="titre" required>
 
-            <label for="recette">Description de la recette</label>
-            <textarea name="recette" required></textarea>
+            <textarea placeholder="Description Recette" name="recette" required></textarea>
 
-            <label for="auteur">Auteur de la recette</label>
-            <input type="text" name="auteur" required>
+            <input placeholder="Auteur" type="text" name="auteur" required>
 
-            <label for="temps">Temps de la recette</label>
-            <input type="text" name="temps" required>
+            <input placeholder="Temps (min)" type="text" name="temps" required>
 
             <button type="submit" name="enregistrer">Envoyer</button>
         </form>
     </section>
-
+    <section class="validation">
     <?php
-    if (isset($_POST['enregistrer'])) {
+        if (isset($_POST['enregistrer'])) {
 
-        // Récupérer et sécurise les donnés
-        $categorie = htmlspecialchars($_POST['categories']);
-        $titre = htmlspecialchars($_POST['titre']);
-        $recette = htmlspecialchars($_POST['recette']);
-        $auteur = htmlspecialchars($_POST['auteur']);
-        $temps = htmlspecialchars($_POST['temps']);
+            // Récupérer et sécurise les donnés
+            $categorie = htmlspecialchars($_POST['categories']);
+            $titre = htmlspecialchars($_POST['titre']);
+            $recette = htmlspecialchars($_POST['recette']);
+            $auteur = htmlspecialchars($_POST['auteur']);
+            $temps = htmlspecialchars($_POST['temps']);
 
-        if (!empty($categorie) && !empty($titre) && !empty($recette) && !empty($auteur) && !empty($temps)) {
+            if (!empty($categorie) && !empty($titre) && !empty($recette) && !empty($auteur) && !empty($temps)) {
+                // Requête SQL
+                $requete = $bddPDO->prepare("INSERT INTO `$categorie` (titre, recette, auteur, temps) VALUES (:titre, :recette, :auteur, :temps)");
 
-            // Requête SQL
-            $requete = $bddPDO->prepare("INSERT INTO `$categorie` (titre, recette, auteur, temps) VALUES (:titre, :recette, :auteur, :temps)");
+                // Change les valuer des paramètres de la requête SQL
+                $requete->bindValue(':titre', $titre);
+                $requete->bindValue(':recette', $recette);
+                $requete->bindValue(':auteur', $auteur);
+                $requete->bindValue(':temps', $temps);
 
-            // Change les valuer des paramètres de la requête SQL
-            $requete->bindValue(':titre', $titre);
-            $requete->bindValue(':recette', $recette);
-            $requete->bindValue(':auteur', $auteur);
-            $requete->bindValue(':temps', $temps);
+                // Exécution de la requête SQL
+                $result = $requete->execute();
 
-            // Exécution de la requête SQL
-            $result = $requete->execute();
-
-            if ($result) {
-                echo "<p>Recette ajoutée | ID : " . $bddPDO->lastInsertId() . " | Catgeorie : " . $categorie . "</p>";
+                if ($result) {
+                    echo "<p>Recette ajoutée | ID : " . $bddPDO->lastInsertId() . " </br> Catgeorie : " . $categorie . "</p>";
+                } else {
+                    echo "<p>Erreur lors de l'ajout de la recette.</p>";
+                }
             } else {
-                echo "<p>Erreur lors de l'ajout de la recette.</p>";
-            }
-        } else {
-            echo "<p>Veuillez remplir tous les champs.</p>";
+                echo "<p>Veuillez remplir tous les champs.</p>";
+                }
         }
-    }
-?>
+    ?>
+</section>
 
 
 
