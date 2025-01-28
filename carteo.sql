@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `mail` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
   `nom` varchar(255) NOT NULL,
-  `mot de passe` varchar(255) NOT NULL,
+  `mdp` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 COMMIT;

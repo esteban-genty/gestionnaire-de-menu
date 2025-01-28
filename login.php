@@ -1,25 +1,36 @@
 <?php
-    // Information pour se connecter
-    $host = 'localhost';
-    $username = 'root';
-    $password = '';
-    $dbname = 'carteo';
+   
 
-    try {
-        // Connexion base de donnés avec PDO
-        $connect = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+   session_start();
+   require_once 'login.php';
+   if (isset($_POST ['enregistrer'])){
+    // pour la validation
+            $email = trim($_POST['email']);
+            $password = ($_POST['password'])
+            $confirmPassword = $_POST[confirmPassword];
+   if(empty($email)  || empty($password))
+   echo"";
+   echo"";
+   exit;
+   }
 
-        // Erreur PDO
-        $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        die("Echec de la connexion : " . $e->getMessage());
-    }
-    $sql = $connect->query("SELECT * FROM utilisateurs");
-    $users = $sql->fetchAll(PDO::FETCH_ASSOC);
+   //confirmation du mots de passe
+   if($password ! == $confirmPassword){
+    echo"";
+    echo"";
+    exit;
+   }
 
-    if(isset($_POST['submitbutton'])) {
-        var_dump($_POST);
-    }
+   try{
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "INSERT INTO `utilisateurs` (mail, nom, prenom, password) VALUES (:mail, :nom, :prenom, :password)";
+    $stmt->bindParam(':', $email);
+    $stmt->bindParam('mdp:', $password);
+
+}
+
+
+
 ?>
 
 <!DOCTYPE html>
