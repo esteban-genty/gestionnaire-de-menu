@@ -42,7 +42,7 @@
         </section>
         <h1>Inscription</h1>
         <section class="formsection">
-            <form action="carteo.sql" method="post">
+            <form action="" method="post">
                
                 <label for="">Email</label>
                 <input type="email" name="email" id="email" required>

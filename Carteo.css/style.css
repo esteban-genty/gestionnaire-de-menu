@@ -107,6 +107,7 @@ button:hover {
     border-radius: 50px;
     font-size: 0.9em;
     box-shadow: 0 2px 4px rgba(211, 80, 80, 0.1);
+  
 }
 
 
@@ -140,6 +141,7 @@ button:hover {
     background: #f9f9f9;
     padding: 10px;
     border: 1px solid #ddd;
+ 
 }
 .conteneur-texte p{
     color: #020101;
