@@ -38,7 +38,7 @@
             <article>
                 <div class="carte">
                     <img src="assets/test pizza.jpg" alt="Image 2">
-                    <h3>Recette 2</h3>
+                    <h3>Recette 1</h3>
                     <div class="temps-box">
                         <p>Tps</p>
                     </div>
@@ -77,7 +77,7 @@
             <article>
                 <div class="carte">
                     <img src="assets/test pizza.jpg" alt="Image 2">
-                    <h3>Recette 2</h3>
+                    <h3>Recette 3</h3>
                     <div class="temps-box">
                         <p>Tps</p>
                     </div>
@@ -96,7 +96,7 @@
             <article>
                 <div class="carte">
                     <img src="assets/test pizza.jpg" alt="Image 2">
-                    <h3>Recette 2</h3>
+                    <h3>Recette 4</h3>
                     <div class="temps-box">
                         <p>Tps</p>
                     </div>
@@ -115,7 +115,7 @@
             <article>
                 <div class="carte">
                     <img src="assets/test pizza.jpg" alt="Image 2">
-                    <h3>Recette 2</h3>
+                    <h3>Recette 5</h3>
                     <div class="temps-box">
                         <p>Tps</p>
                     </div>
@@ -134,7 +134,7 @@
             <article>
                 <div class="carte">
                     <img src="assets/test pizza.jpg" alt="Image 2">
-                    <h3>Recette 2</h3>
+                    <h3>Recette 6</h3>
                     <div class="temps-box">
                         <p>Tps</p>
                     </div>
@@ -153,7 +153,7 @@
             <article>
                 <div class="carte">
                     <img src="assets/test pizza.jpg" alt="Image 2">
-                    <h3>Recette 2</h3>
+                    <h3>Recette 7</h3>
                     <div class="temps-box">
                         <p>Tps</p>
                     </div>
@@ -172,7 +172,7 @@
             <article>
                 <div class="carte">
                     <img src="assets/test pizza.jpg" alt="Image 2">
-                    <h3>Recette 2</h3>
+                    <h3>Recette 8</h3>
                     <div class="temps-box">
                         <p>Tps</p>
                     </div>
