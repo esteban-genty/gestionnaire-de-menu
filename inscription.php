@@ -1,4 +1,26 @@
+<?php
+    // Information pour se connecter
+    $host = 'localhost';
+    $username = 'root';
+    $password = '';
+    $dbname = 'carteo';
 
+    try {
+        // Connexion base de donnés avec PDO
+        $connect = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+
+        // Erreur PDO
+        $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        die("Echec de la connexion : " . $e->getMessage());
+    }
+    $sql = $connect->query("SELECT * FROM utilisateurs");
+    $users = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+    if(isset($_POST['submitbutton'])) {
+        var_dump($_POST);
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -19,7 +41,7 @@
             <img src="ressources\logo-carteo.png" alt="logo carteo">
         </section>
         <h1>Inscription</h1>
-        <div class="formsection">
+        <section class="formsection">
             <form action="" method="post">
                 <label for="">Société</label>
                 <input type="text" name="entreprise" id="entreprise" required>
@@ -33,9 +55,11 @@
                 <input type="password" name="password" id="password" required>
                 <label for="">Confirmer mot de passe</label>
                 <input type="password" name="password" id="password" required>
-                <button type="submit" name="submitbutton">S'inscrire</button>
+                <div id = "buttonbox">
+                    <button type="submit" name="submitbutton">S'inscrire</button>
+                </div>
             </form>
-        </div>
+        </section>
     </main>
 </body>
 </html>

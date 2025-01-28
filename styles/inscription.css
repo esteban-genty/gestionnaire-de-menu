@@ -70,20 +70,26 @@ body {
                 input:focus {
                     box-shadow: #EE7121 inset 0 -4px;
                 }
-                button {
-                    border-radius: 25px;
-                    padding: 5px;
-                    margin: 20px;
-                    width: 40%;
-                    background-color: var(--main-bg-color);
-                    font-weight: bold;
-                    color: white;
-                    border: none;
-                }
-                button:hover {
-                    background-color: #d3621c;
-                    color: rgb(235, 235, 235);
-                    cursor: pointer;
+                #buttonbox {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    button {
+                        border-radius: 25px;
+                        padding: 5px;
+                        margin: 20px 0;
+                        width: 40%;
+                        background-color: var(--main-bg-color);
+                        font-weight: bold;
+                        color: white;
+                        border: none;
+                    }
+                    button:hover {
+                        background-color: #d3621c;
+                        color: rgb(235, 235, 235);
+                        cursor: pointer;
+                    }
                 }
             }
     }
