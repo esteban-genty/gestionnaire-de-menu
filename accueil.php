@@ -5,21 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Gestionnaire de Menu</title>
     <link rel="stylesheet" href="Carteo.css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="Carteo.css/style.css">
+    <link rel="preconnect" href="Carteo.css/header.css" >
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <nav>
-            <ul class="nav-left">
-                <li><a href="moncompte.html"><h5>Carteo</h5></a></li>
-            </ul>
-            <ul class="nav-right">
-                <li><a href="moncompte.html">Mon Compte</a></li>
-            </ul>
-        </nav>
-    </header>
-
+    <?php require_once(__DIR__ . '/header.php'); ?>
+  
     <!-- Section d'accueil -->
     <section class="Accueil">
         <h1>Bienvenue sur CarTeo</h1>
