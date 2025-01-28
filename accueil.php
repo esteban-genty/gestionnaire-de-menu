@@ -26,7 +26,7 @@
     <section class="Accueil">
         <h1>Bienvenue sur CarTeo</h1>
         <p style="font-family: cursive;">Créez et partagez vos recettes</p>
-        <button><a href="">Inscrivez vous gratuitement</a> </button>
+        <button><a href="inscription.php">Inscrivez vous gratuitement</a> </button>
         <p>Ou</p>
         <a href="login.php" style="text-decoration: underline;color: black;">Connectez vous</a>
     </section>
