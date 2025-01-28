@@ -1,25 +1,34 @@
 <?php
-    // Information pour se connecter
-    $host = 'localhost';
-    $username = 'root';
-    $password = '';
-    $dbname = 'carteo';
+    session_start();
+        require_once(__DIR__ . '/start.php');
+        if(isset($_POST['submitbutton'])) {
+            extract($_POST);
 
-    try {
-        // Connexion base de donnés avec PDO
-        $connect = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+            $req = $bddPDO->prepare("INSERT INTO utilisateurs (societe, mail, prenom, nom, mdp) VALUES (:societe, :mail, :prenom, :nom, MD5(:mdp))");
+            $req -> execute(
+                array(
+                    'societe' => $societe,
+                    'mail' => $mail,
+                    'prenom' => $prenom,
+                    'nom' => $nom,
+                    'mdp' => $mdp
+                )
+            );
+            if ($req->rowCount() > 0) {
+                $_SESSION['utilisateur'] = [
+                    'societe' => $societe,
+                    'mail' => $mail,
+                    'prenom' => $prenom,
+                    'nom' => $nom
+                ];
+                header('Location: index.php');
+                exit();
+            }
+            else {
+                echo "<p>Erreur lors de l'inscription</p>";
+            }
+        }
 
-        // Erreur PDO
-        $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        die("Echec de la connexion : " . $e->getMessage());
-    }
-    $sql = $connect->query("SELECT * FROM utilisateurs");
-    $users = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-    if(isset($_POST['submitbutton'])) {
-        var_dump($_POST);
-    }
 ?>
 
 <!DOCTYPE html>
@@ -44,17 +53,15 @@
         <section class="formsection">
             <form action="" method="post">
                 <label for="">Société</label>
-                <input type="text" name="entreprise" id="entreprise" required>
+                <input type="text" name="societe" id="societe" required>
                 <label for="">Email</label>
-                <input type="email" name="email" id="email" required>
+                <input type="email" name="mail" id="mail" required>
                 <label for="">Prénom</label>
                 <input type="text" name="prenom" id="prenom" required>
                 <label for="">Nom</label>
                 <input type="text" name="nom" id="nom" required>
                 <label for="">Mot de passe</label>
-                <input type="password" name="password" id="password" required>
-                <label for="">Confirmer mot de passe</label>
-                <input type="password" name="password" id="password" required>
+                <input type="password" name="mdp" id="mdp" required>
                 <div id = "buttonbox">
                     <button type="submit" name="submitbutton">S'inscrire</button>
                 </div>
