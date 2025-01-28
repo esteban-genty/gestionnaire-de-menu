@@ -1,4 +1,26 @@
+<?php
+    // Information pour se connecter
+    $host = 'localhost';
+    $username = 'root';
+    $password = '';
+    $dbname = 'carteo';
 
+    try {
+        // Connexion base de donnés avec PDO
+        $connect = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+
+        // Erreur PDO
+        $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        die("Echec de la connexion : " . $e->getMessage());
+    }
+    $sql = $connect->query("SELECT * FROM utilisateurs");
+    $users = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+    if(isset($_POST['submitbutton'])) {
+        var_dump($_POST);
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -14,35 +36,25 @@
 </head>
 <body>
     <?php require_once(__DIR__ . '/header.php'); ?>
-    <header>
-        <nav>
-            <ul class="nav-left">
-                <li><a href="moncompte.html"><h5>Carteo</h5></a></li>
-            </ul>
-            <ul class="nav-right">
-                <li><a href="moncompte.html">Mon Compte</a></li>
-            </ul>
-        </nav>
-    </header>
     <main>
         <section>
             <img src="assets/CarteO-27-01-2025.png" alt="logo carteo">
         </section>
         <h1>Inscription</h1>
-        <div class="formsection">
-            <form action="" method="post">
-               
+        <section class="formsection">
+            <form action="carteo.sql" method="post">
                
                 <label for="">Email</label>
                 <input type="email" name="email" id="email" required>
               
-               
                 <label for="">Mot de passe</label>
                 <input type="password" name="password" id="password" required>
-            
-                <button type="submit" name="submitbutton">S'inscrire</button>
+              
+                <div id = "buttonbox">
+                    <button type="submit" name="submitbutton">S'inscrire</button>
+                </div>
             </form>
-        </div>
+        </section>
     </main>
 </body>
 </html>
