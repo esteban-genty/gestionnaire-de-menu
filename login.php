@@ -29,11 +29,11 @@ if (isset($_POST['email'])) {
         $stmt->bindParam(':mail', $email, PDO::PARAM_STR);
         $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-       // var_dump($user);
+        //var_dump($user);
 
         if ($user) {
             // Vérification du mot de passe
-            if (password_verify($password, $user['mot de passe'])) {
+            if ( $user ['mdp']==md5($password)) {
                 // Si le mot de passe est correct, rediriger vers une page sécurisée
                 header("Location: accueil.php");
                 exit();
@@ -42,7 +42,7 @@ if (isset($_POST['email'])) {
             }
         } else {
             $error = "Utilisateur introuvable. Veuillez vous inscrire.";
-            header("Location: accueil.php");
+            header("Location: inscription.php");
         }
     } else {
         $error = "Veuillez remplir tous les champs.";
@@ -59,6 +59,9 @@ if (isset($_POST['email'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Carteo.css/login.css">
     <link rel="stylesheet" href="Carteo.css/header.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <title>Connexion</title>
 </head>
 
@@ -68,24 +71,22 @@ if (isset($_POST['email'])) {
         <h1>Connexion</h1>
 
         <section class="formsection">
-            <!-- Affiche un message d'erreur s'il existe -->
-
             <form action="" method="post">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" required>
 
                 <label for="password">Mot de passe</label>
-                <input type="password" name="mdp" id="password" required>
+                <input type="password" name="password" id="password" required>
 
                 <div id="buttonbox">
                     <button type="submit">Se connecter</button>
                 </div>
             </form>
-            <?php
-         isset($error) ? print_r($error)  : '';
-            ?>
         </section>
-        </section>
+
+        <?php if (isset($error)): ?>
+            <div class="error"><?php echo htmlspecialchars($error); ?></div>
+        <?php endif; ?>
     </main>
 </body>
 
