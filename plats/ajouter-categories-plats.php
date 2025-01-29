@@ -64,6 +64,8 @@
 
                     if ($result) {
                         echo "<p>Catégorie ajoutée : " . htmlspecialchars($categories_plat) . "</p>";
+                        header("Location: " . $_SERVER['PHP_SELF']);
+                        exit; 
                     } else {
                         echo "<p>Erreur lors de l'ajout de la catégorie.</p>";
                     }
