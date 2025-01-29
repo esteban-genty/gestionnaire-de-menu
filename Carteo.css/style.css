@@ -187,7 +187,7 @@ button:hover {
 }
 /* Div principale image en arrière-plan */
 .background-container {
-    background-image: url(../assets/Pork-Jowl-Stew-with-Red-Wine-4-960x540.jpg); 
+    background-image: url(../assets/beef-stew.jpg); 
     background-size: cover; 
     background-position: center;
     height: 400px; 

@@ -42,7 +42,7 @@ if (isset($_POST['email'])) {
             }
         } else {
             $error = "Utilisateur introuvable. Veuillez vous inscrire.";
-            header("Location: inscription.php");
+            header("Location: redirection.php");
         }
     } else {
         $error = "Veuillez remplir tous les champs.";
