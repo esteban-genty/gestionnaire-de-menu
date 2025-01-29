@@ -144,20 +144,20 @@ button:hover {
 
 
 /* petit effet de survol */
-.carte:hover {
-    transform: scale(1);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-  
+.conteneur-texte {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
+    background: #f9f9f9;
+    padding: 0 10px;
+    border: 1px solid #ddd;
 }
 
-.conteneur-texte {
-    display: none;
-    margin-top: 10px;
-    background: #f9f9f9;
-    /* padding: 10px; */
-    border: 1px solid #ddd;
-    transition: .5s ease;
-  
+.carte:hover .conteneur-texte {
+    opacity: 1;
+    max-height: 200px; /* Ajuste cette valeur selon le contenu */
+    padding: 10px;
 }
 
 .conteneur-texte p{
