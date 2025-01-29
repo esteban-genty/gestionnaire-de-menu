@@ -11,6 +11,6 @@
 
     // Affiche les erreurs
     $bddPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "<p>Connexion réussie</p>";
+        // echo "<p>Connexion réussie</p>";
 
 ?>
