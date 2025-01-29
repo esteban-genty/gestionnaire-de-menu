@@ -27,7 +27,10 @@
     <div class="background-container">
     <div class="box">
         <h2>Bienvenue sur CarteO</h2>
-        <p>Découvrez des recettes délicieuses et faciles à réaliser que vous pourrez déguster entre familles ou amis !</p>
+        <p>Bienvenue sur Carteo ! 🍽️✨
+Découvrez un univers gourmand où chaque recette est une invitation au voyage des saveurs. Que vous soyez un chef passionné ou un amateur en quête d’inspiration, notre collection de recettes saura éveiller votre créativité culinaire.
+
+Préparez-vous à explorer des plats savoureux, simples ou sophistiqués, adaptés à toutes les envies et occasions. Bon appétit et bonne découverte sur Carteo ! 🍴👨‍🍳!</p>
        
     </div>
 </div>

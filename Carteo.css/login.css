@@ -104,10 +104,9 @@ body {
 }
 
 .error {
-    position: fixed;               
-    top: 50%;                     
-    left: 50%;                     
-    transform: translate(-50%, -50%); 
+    position: absolute;               
+                    
+ margin-bottom: 0;
     background-color: #ffffff;      
     color: #e91328;                 
     border: 1px solid #4b030a;      
