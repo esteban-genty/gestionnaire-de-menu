@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Gestionnaire de Menu</title>
-    <link rel="stylesheet" href="Carteo.css/style.css">
+    
         <!-- Police d'écriture -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,12 +24,30 @@
   
     <!-- Section d'accueil -->
     <section class="Accueil">
-        <h1>Bienvenue sur CarTeo</h1>
-        <p style="font-family: cursive;">Créez et partagez vos recettes</p>
+    <div class="background-container">
+    <div class="box">
+        <h2>Bienvenue sur notre site</h2>
+        <p>Découvrez des recettes délicieuses et faciles à réaliser que vous pourrez déguster entre familles ou amis !</p>
+       
+    </div>
+</div>
+        <p style="font-family: cursive;">Découvrez plus en vous connectant</p>
         <button><a href="inscription.php">Inscrivez vous gratuitement</a> </button>
         <p>Ou</p>
         <a href="login.php" style="text-decoration: underline;color: black;">Connectez vous</a>
+           
+ 
+
     </section>
+
+
+    <!---------------------------->
+  
+   
+
+
+  
+
 
     <!-- Section principale -->
     <main>
@@ -191,5 +209,14 @@
             <!--  -->
         </section>
     </main>
+    <footer class="footer">
+    <div class="footer-content">
+        <h2>CarTeo - Recettes Délicieuses</h2>
+        <p>Découvrez des recettes faciles et savoureuses à partager avec vos proches.</p>
+       
+    </div>
+  
+</footer>
+
 </body>
 </html>
