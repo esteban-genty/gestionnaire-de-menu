@@ -1,26 +1,18 @@
-/* style.css */
-
 /* Style général */
-
-/* Header */
-body{
-   
-   
-   
+body {
     margin: 0;
     background-color: #f0f0f0;
 }
 
-header{
+header {
     background-color: #EE7121;
     display: flex;
     align-items: center;
     height: 80px;
     justify-content: center;
-   
 }
 
-nav{
+nav {
     width: 88%;
     display: flex;
     justify-content: space-between;
@@ -28,26 +20,26 @@ nav{
     gap: 20px;
 }
 
-ul{
+ul {
     list-style-type: none;
 }
 
-.nav-right{
+.nav-right {
     font-size: 1.2rem;
 }
 
-.nav-left{
+.nav-left {
     font-size: 2.3rem;
 }
 
-a{
+a {
     text-decoration: none;
     color: #512314;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
 }
 
-.nav-left h5{
+.nav-left h5 {
     font-family: "Lobster", sans-serif;
 }
 
@@ -59,28 +51,26 @@ button {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-button a{
+
+button a {
     color: black;
 }
+
 button:hover {
     background-color: #f5a94777;
 }
 
-
-
 /* Section d'accueil */
 .Accueil {
     text-align: center;
-    padding: 60px ;
+    padding: 60px;
     background-color: #F4EBDC;
     margin-bottom: 30px;
-   
 }
 
 .Accueil button {
     margin-top: 10px;
     font-size: larger;
-    
 }
 
 /* Section recettes */
@@ -91,12 +81,8 @@ button:hover {
     padding: 60px;
     max-width: 1400px;
     margin: 80px auto;
-  
 }
- .carte:hover .conteneur-texte {
-     display: block; 
-   
-} 
+
 .carte {
     background-color: white;
     border-radius: 2px;
@@ -104,24 +90,22 @@ button:hover {
     overflow: hidden;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
-    position: relative; /* position relative*/
+    position: relative;
     width: 300px;
     cursor: pointer;
-   
 }
-.temps-box{
-    position: absolute; /* Position absolue */
+
+.temps-box {
+    position: absolute;
     bottom: 10px;
-    right: 10px; 
+    right: 10px;
     background-color: #9b9b9b;
     color: #020101;
     padding: 5px 10px;
     border-radius: 50px;
     font-size: 0.9em;
     box-shadow: 0 2px 4px rgba(211, 80, 80, 0.1);
-  
 }
-
 
 .carte img {
     width: 100%;
@@ -132,23 +116,19 @@ button:hover {
 .carte h3 {
     margin: 15px 0 10px;
     font-size: 1.5em;
-   
 }
 
 .carte p {
-   
     color: #7f8c8d;
     font-size: 0.9em;
-   
 }
 
-
-/* petit effet de survol */
+/* Effet de survol */
 .conteneur-texte {
     opacity: 0;
     max-height: 0;
     overflow: hidden;
-    transition: opacity 0.5s ease, max-height 0.5s ease;
+    transition: opacity 0.8s ease, max-height 0.8s ease;
     background: #f9f9f9;
     padding: 0 10px;
     border: 1px solid #ddd;
@@ -156,53 +136,23 @@ button:hover {
 
 .carte:hover .conteneur-texte {
     opacity: 1;
-    max-height: 200px; /* Ajuste cette valeur selon le contenu */
+    max-height: 200px;
     padding: 10px;
 }
 
-.conteneur-texte p{
-    color: #020101;
-}
-
-
-.temps-box p{
-    color: #020101;
-}
-/* Responsive */
-
-
-@media (max-width: 768px) {
-    .header-logo {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .header_menu {
-        margin-top: 10px;
-    }
-
-    .Accueil {
-        padding: 20px 10px;
-    }
-}
-/* Div principale image en arrière-plan */
+/* Image en arrière-plan */
 .background-container {
-    background-image: url(../assets/beef-stew.jpg); 
-    background-size: cover; 
+    background-image: url(../assets/beef-stew.jpg);
+    background-size: cover;
     background-position: center;
-    height: 400px; 
+    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
-   
-}
-.background-container h2{
-    font-family: "Lobster", sans-serif;
 }
 
-/* Box  */
 .box {
-    background: rgba(253, 204, 175, 0.8); /* Fond semi-transparent */
+    background: rgba(253, 204, 175, 0.8);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -211,32 +161,17 @@ button:hover {
     font-size: larger;
 }
 
-/* Bouton */
-.box button {
-    background-color: #EE7121;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.box button:hover {
-    background-color: #d95f1d;
-}
 /* Footer */
 .footer {
-     background-image:url(../assets/beef-stew.jpg);
-    background-size: cover; 
+    background-image: url(../assets/beef-stew.jpg);
+    background-size: cover;
     background-color: rgba(255, 255, 255, 0.5);
     background-position: center;
     color: rgb(255, 255, 255);
     text-align: center;
     padding: 50px 20px;
     position: relative;
-   object-fit: cover;
-   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .footer-content {
@@ -247,8 +182,6 @@ button:hover {
 .footer h2 {
     font-family: "Lobster", sans-serif;
     font-size: 4rem;
-   
-    
 }
 
 .footer p {
@@ -257,5 +190,52 @@ button:hover {
     font-size: x-large;
 }
 
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
 
+    .nav-right, .nav-left {
+        font-size: 1rem;
+    }
 
+    .Accueil {
+        padding: 20px 10px;
+    }
+
+    .box {
+        width: 90%;
+        font-size: medium;
+        padding: 15px;
+    }
+
+    .Accueil button {
+        font-size: medium;
+        padding: 8px 12px;
+    }
+
+    .recettes {
+        gap: 30px;
+        padding: 30px;
+    }
+
+    .carte {
+        width: 100%;
+    }
+
+    .background-container {
+        height: 300px;
+        background-size: contain;
+    }
+
+    .footer h2 {
+        font-size: 2.5rem;
+    }
+
+    .footer p {
+        font-size: 1rem;
+    }
+}

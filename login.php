@@ -4,6 +4,7 @@ $host = 'localhost';
 $username = 'root';
 $password = '';
 $dbname = 'carteo';
+session_start();
 
 try {
     // Connexion avec PDO
@@ -35,6 +36,11 @@ if (isset($_POST['email'])) {
             // Vérification du mot de passe
             if ( $user ['mdp']==md5($password)) {
                 // Si le mot de passe est correct, rediriger vers une page sécurisée
+             
+
+
+                //SESSION pour garder les données de l'utilisateur aprés la verification 
+                $_SESSION['user'] = $user;
                 header("Location: accueil.php");
                 exit();
             } else {
@@ -48,6 +54,9 @@ if (isset($_POST['email'])) {
         $error = "Veuillez remplir tous les champs.";
     }
 }
+
+
+
 ?>
 
 
