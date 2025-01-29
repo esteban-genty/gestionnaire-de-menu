@@ -87,6 +87,8 @@
 
                 if ($result) {
                     echo "<p>Plat ajoutée | ID : " . $bddPDO->lastInsertId() . " </br> Catgeorie : " . $categorie . "</p>";
+                    header("Location: " . $_SERVER['PHP_SELF']);
+                    exit; 
                 } else {
                     echo "<p>Erreur lors de l'ajout du plat.</p>";
                 }
