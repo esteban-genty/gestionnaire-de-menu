@@ -26,7 +26,7 @@
                         'prenom' => $prenom,
                         'nom' => $nom
                     ];
-                    header('Location: index.php');
+                    header('Location: inscription.php');
                     exit();
                 }
                 else {
@@ -54,7 +54,7 @@
     <?php require_once(__DIR__ . '/header.php'); ?>
     <main>
         <section>
-            <img src="ressources\logo-carteo.png" alt="logo carteo">
+            <img src="assets\logo-carteo.png" alt="logo carteo">
         </section>
         <h1>Inscription</h1>
         <section class="formsection">
@@ -79,6 +79,7 @@
                 </div>
             </form>
         </section>
+        <?php require_once(__DIR__ . '/footer.php'); ?>
     </main>
 </body>
 </html>
