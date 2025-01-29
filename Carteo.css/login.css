@@ -18,8 +18,9 @@
 }
 
 body {
-    background-image: url(../assets/imageconnexion.jpg);
-   background-size: cover;
+    background-image: url(../assets/quelles-sont-les-meilleures-specialites-culinaires-corses.jpg) ;
+    background-size: cover;
+    background-color: rgba(255, 255, 255, 0.5);
     background-color: var(--bg-body);
     height: 100vh;
     font-family: var(--main-font);
@@ -43,9 +44,12 @@ body {
             font-family: var(--title-font);
             font-size: 40px;
             margin-bottom: 20px;
+            margin-top: 50px;
+            color: #ffffff;
         }
     }
         .formsection {
+            margin-top: 50px;
             width: 30%;
             height: fit-content;
             display: flex;

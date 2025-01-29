@@ -17,6 +17,7 @@ header{
     align-items: center;
     height: 80px;
     justify-content: center;
+   
 }
 
 nav{
@@ -62,7 +63,7 @@ button a{
     color: black;
 }
 button:hover {
-    background-color: #a1f3f3;
+    background-color: #f5a94777;
 }
 
 
@@ -131,12 +132,14 @@ button:hover {
 .carte h3 {
     margin: 15px 0 10px;
     font-size: 1.5em;
+   
 }
 
 .carte p {
    
     color: #7f8c8d;
     font-size: 0.9em;
+   
 }
 
 
@@ -185,12 +188,16 @@ button:hover {
 /* Div principale image en arrière-plan */
 .background-container {
     background-image: url(../assets/Pork-Jowl-Stew-with-Red-Wine-4-960x540.jpg); 
-    background-size: cover;
+    background-size: cover; 
     background-position: center;
     height: 400px; 
     display: flex;
     justify-content: center;
     align-items: center;
+   
+}
+.background-container h2{
+    font-family: "Lobster", sans-serif;
 }
 
 /* Box  */
@@ -220,8 +227,9 @@ button:hover {
 }
 /* Footer */
 .footer {
-    background-image:url(../assets/beef-stew.jpg);
-    background-size: cover;
+     background-image:url(../assets/beef-stew.jpg);
+    background-size: cover; 
+    background-color: rgba(255, 255, 255, 0.5);
     background-position: center;
     color: rgb(255, 255, 255);
     text-align: center;
@@ -238,12 +246,15 @@ button:hover {
 
 .footer h2 {
     font-family: "Lobster", sans-serif;
-    font-size: 2rem;
+    font-size: 4rem;
+   
+    
 }
 
 .footer p {
     font-size: 1.2rem;
     margin-bottom: 20px;
+    font-size: x-large;
 }
 
 

@@ -26,7 +26,7 @@
     <section class="Accueil">
     <div class="background-container">
     <div class="box">
-        <h2>Bienvenue sur notre site</h2>
+        <h2>Bienvenue sur CarteO</h2>
         <p>Découvrez des recettes délicieuses et faciles à réaliser que vous pourrez déguster entre familles ou amis !</p>
        
     </div>
