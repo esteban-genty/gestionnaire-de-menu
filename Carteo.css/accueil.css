@@ -1,11 +1,18 @@
-/* Style général */
-body {
-    margin: 0;
-    background-color: #f0f0f0;
+/* */
+:root {
+    --primary-color: #EE7121;  
+
 }
 
+/* styles general */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Header */
 header {
-    background-color: #EE7121;
+    background-color: var(--primary-color); /* */
     display: flex;
     align-items: center;
     height: 80px;
@@ -20,12 +27,9 @@ nav {
     gap: 20px;
 }
 
-ul {
-    list-style-type: none;
-}
-
 .nav-right {
     font-size: 1.2rem;
+    
 }
 
 .nav-left {
@@ -34,37 +38,49 @@ ul {
 
 a {
     text-decoration: none;
-    color: #512314;
-    font-family: Arial, Helvetica, sans-serif;
+    color: var(--secondary-color); 
     font-weight: bold;
+    
 }
 
 .nav-left h5 {
     font-family: "Lobster", sans-serif;
 }
 
+/* Button inscription */
 button {
-    background-color: #f7f8f1;
+    background-color: #db9f1dc5;
     border: none;
-    padding: 10px 15px;
+    padding: 12px 25px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #512314; /* Couleur de texte */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 button a {
-    color: black;
+    color: inherit; 
+    text-decoration: none; 
 }
 
 button:hover {
-    background-color: #f5a94777;
+    background-color: #f5a94777; 
+    transform: scale(1.05); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
 }
 
+/* Effet survol boi */
+button a:hover {
+    text-decoration: underline;
+    color: #512314;
+}
 /* Section d'accueil */
 .Accueil {
     text-align: center;
     padding: 60px;
-    background-color: #F4EBDC;
+    background-color: var(--accent-color); /* Light Beige */
     margin-bottom: 30px;
 }
 
@@ -72,8 +88,28 @@ button:hover {
     margin-top: 10px;
     font-size: larger;
 }
+.debut {
+    background-color: #F4EBDC;
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 600px;
+}
 
-/* Section recettes */
+.debut p {
+    font-family: 'Lobster', cursive;
+    font-size: 2rem;
+    color: #EE7121;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+/* Recettes Section */
 .recettes {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -81,10 +117,11 @@ button:hover {
     padding: 60px;
     max-width: 1400px;
     margin: 80px auto;
+   
 }
 
 .carte {
-    background-color: white;
+    background: rgba(253, 204, 175, 0.8);
     border-radius: 2px;
     box-shadow: 0 20px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -93,18 +130,19 @@ button:hover {
     position: relative;
     width: 300px;
     cursor: pointer;
+    border-radius: 28px;
 }
 
 .temps-box {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    background-color: #9b9b9b;
-    color: #020101;
     padding: 5px 10px;
     border-radius: 50px;
     font-size: 0.9em;
-    box-shadow: 0 2px 4px rgba(211, 80, 80, 0.1);
+    box-shadow: 0 2px 4px rgba(58, 57, 57, 0.1);
+    background-color: #ffffff;
+
 }
 
 .carte img {
@@ -116,20 +154,21 @@ button:hover {
 .carte h3 {
     margin: 15px 0 10px;
     font-size: 1.5em;
+    color: var(--text-color); /* Dark Blue for titles */
 }
 
 .carte p {
-    color: #7f8c8d;
+    color: #ffffff;
     font-size: 0.9em;
 }
 
-/* Effet de survol */
+/* Hover effect */
 .conteneur-texte {
     opacity: 0;
     max-height: 0;
     overflow: hidden;
     transition: opacity 0.8s ease, max-height 0.8s ease;
-    background: #f9f9f9;
+    background: #555252;
     padding: 0 10px;
     border: 1px solid #ddd;
 }
@@ -140,7 +179,7 @@ button:hover {
     padding: 10px;
 }
 
-/* Image en arrière-plan */
+/* Image  background */
 .background-container {
     background-image: url(../assets/beef-stew.jpg);
     background-size: cover;
@@ -163,17 +202,31 @@ button:hover {
 
 /* Footer */
 .footer {
-    background-image: url(../assets/beef-stew.jpg);
-    background-size: cover;
-    background-color: rgba(255, 255, 255, 0.5);
-    background-position: center;
+    position: relative;
     color: rgb(255, 255, 255);
     text-align: center;
     padding: 50px 20px;
-    position: relative;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../assets/beef-stew.jpg);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8; /* Opacité de l'image */
+    z-index: -1; /* Place l'image en arrière-plan */
+}
+
+.footer .footer-content {
+    position: relative;
+    z-index: 1;
+}
 .footer-content {
     max-width: 800px;
     margin: 0 auto;
@@ -190,7 +243,7 @@ button:hover {
     font-size: x-large;
 }
 
-/* Responsive */
+/* Responsive Styles  à ameliorer */
 @media (max-width: 1024px) {
     nav {
         width: 100%;
@@ -255,4 +308,3 @@ button:hover {
         font-size: 1rem;
     }
 }
-
