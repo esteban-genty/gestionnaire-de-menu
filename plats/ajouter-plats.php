@@ -32,7 +32,7 @@
             <?php 
                 $requete = "SELECT DISTINCT categories_plat FROM plats WHERE utilisateur_id = :user_id";
                 $requete_plats = $bddPDO->prepare($requete);
-                $requete_plats->bindValue(':user_id', $_SESSION['user']['utilisateur_id']);
+                $requete_plats->bindValue(':user_id', $_SESSION['utilisateur']['utilisateur_id']);
                 $requete_plats->execute();
             ?>
             <select name="categories_plat" id="categories_plat">
@@ -84,7 +84,7 @@
                 $requete->bindValue(':description_plat', $description_plat);
                 $requete->bindValue(':prix', $prix);
                 $requete->bindValue(':afficher', $afficher);
-                $requete->bindValue(':utilisateur', $_SESSION['user']['utilisateur_id']);
+                $requete->bindValue(':utilisateur', $_SESSION['utilisateur']['utilisateur_id']);
 
                 // Exécution de la requête SQL
                 $result = $requete->execute();

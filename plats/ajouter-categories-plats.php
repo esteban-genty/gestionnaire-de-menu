@@ -58,7 +58,7 @@
                     $requete->bindValue(':description_plat', $description_plat);
                     $requete->bindValue(':prix', $prix_plat);
                     $requete->bindValue(':afficher', $afficher_plat);
-                    $requete->bindValue(':utilisateur', $_SESSION['user']['utilisateur_id']);
+                    $requete->bindValue(':utilisateur', $_SESSION['utilisateur']['utilisateur_id']);
 
                     // Exécution de la requête
                     $result = $requete->execute();

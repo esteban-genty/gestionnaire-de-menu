@@ -29,7 +29,7 @@
         // Requête pour récupérer les plats de l'utilisateur
         $requete = "SELECT * FROM plats WHERE utilisateur_id = :user_id";
         $requete_plats = $bddPDO->prepare($requete);
-        $requete_plats->bindValue(':user_id', $_SESSION['user']['utilisateur_id']);
+        $requete_plats->bindValue(':user_id', $_SESSION['utilisateur']['utilisateur_id']);
         $requete_plats->execute();
     ?>
 
@@ -64,7 +64,6 @@
                     echo "<div class=\"detail\">";
                     echo "<h2> Catégorie : ". $plats['categories_plat'] . "</h2>";
                     echo "</div>";
-
                     echo "<form method=\"POST\" action=\"\">";
                     echo "<input type=\"hidden\" name=\"plat_id\" value=\"" . $plats['plat_id'] . "\">";
                     echo "<button type=\"submit\" name=\"supprimer-categories-plats\">Supprimer</button>";
