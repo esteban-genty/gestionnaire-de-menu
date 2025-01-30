@@ -32,7 +32,7 @@
 
             <input placeholder="Titre Catégorie" type="text" name="categories_plat" required>
 
-            <button type="submit" name="enregistrer">Envoyer</button>
+            <button type="submit" name="enregistrer">Ajouter</button>
 
         </form>
 
@@ -77,6 +77,8 @@
             }
         ?>
     </section>
+
+    <?php require_once(__DIR__ . '/../footer.php') ?>
 
 </body>
 </html>

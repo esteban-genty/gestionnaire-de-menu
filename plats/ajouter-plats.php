@@ -12,7 +12,7 @@
 
     <!-- Fichier styles -->
     <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/ajouter-categories-plats.css">
+    <link rel="stylesheet" href="../styles/ajouter-plats.css">
     <link rel="stylesheet" href="../styles/style.css">
 
     <!-- Police d'écriture -->
@@ -51,10 +51,12 @@
 
             <input placeholder="Prix" type="text" name="prix_plat" required>
 
-            <button type="submit" name="enregistrer">Envoyer</button>
+            <button type="submit" name="enregistrer">Ajouter</button>
         </form>
     </section>
     <section class="validation">
+
+    <?php require_once(__DIR__ . '/../footer.php') ?>
 
     <?php
         if (isset($_POST['enregistrer'])) {
