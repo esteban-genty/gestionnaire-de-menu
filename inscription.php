@@ -1,5 +1,4 @@
 <?php
-    session_start();
     require_once(__DIR__ . '/start.php');
     $erreur_msg = "";
     if(isset($_POST['submitbutton'])) {
@@ -78,7 +77,7 @@
                 </div>
             </form>
         </section>
-        <?php require_once(__DIR__ . '/footer.php'); ?>
     </main>
+    <?php require_once(__DIR__ . '/footer.php'); ?>
 </body>
 </html>

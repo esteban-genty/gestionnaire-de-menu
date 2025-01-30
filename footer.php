@@ -16,7 +16,7 @@
 <footer>
   <div class="footer-link">
     <div>
-      <img class="img" src="assets/logo-carteo.png" alt="logo carteO">
+      <img class="img" src="./assets/logo-carteo.png" alt="logo carteO">
     </div>
   </div>
   <div class="footer-link">
