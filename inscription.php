@@ -1,40 +1,39 @@
 <?php
     session_start();
-        require_once(__DIR__ . '/start.php');
-        $erreur_msg = "";
-        if(isset($_POST['submitbutton'])) {
-            extract($_POST);
-            if ($mdp !== $mdp_confirmation) {
-                $erreur_msg = "Les mots de passe ne correspondent pas";
-            } 
+    require_once(__DIR__ . '/start.php');
+    $erreur_msg = "";
+    if(isset($_POST['submitbutton'])) {
+        extract($_POST);
+        if ($mdp !== $mdp_confirmation) {
+            $erreur_msg = "Les mots de passe ne correspondent pas";
+        } 
+        else {
+            $mdp_hashed = password_hash($mdp, PASSWORD_BCRYPT);
+            $req = $bddPDO->prepare("INSERT INTO utilisateurs (societe, mail, prenom, nom, mdp) VALUES (:societe, :mail, :prenom, :nom, :mdp)");
+            $req -> execute(
+                array(
+                    'societe' => $societe,
+                    'mail' => $mail,
+                    'prenom' => $prenom,
+                    'nom' => $nom,
+                    'mdp' => $mdp_hashed
+                )
+            );
+            if ($req->rowCount() > 0) {
+                $_SESSION['utilisateur'] = [
+                    'societe' => $societe,
+                    'mail' => $mail,
+                    'prenom' => $prenom,
+                    'nom' => $nom
+                ];
+                header('Location: inscription.php');
+                exit();
+            }
             else {
-                $mdp_hashed = password_hash($mdp, PASSWORD_BCRYPT);
-                $req = $bddPDO->prepare("INSERT INTO utilisateurs (societe, mail, prenom, nom, mdp) VALUES (:societe, :mail, :prenom, :nom, :mdp)");
-                $req -> execute(
-                    array(
-                        'societe' => $societe,
-                        'mail' => $mail,
-                        'prenom' => $prenom,
-                        'nom' => $nom,
-                        'mdp' => $mdp_hashed
-                    )
-                );
-                if ($req->rowCount() > 0) {
-                    $_SESSION['utilisateur'] = [
-                        'societe' => $societe,
-                        'mail' => $mail,
-                        'prenom' => $prenom,
-                        'nom' => $nom
-                    ];
-                    header('Location: inscription.php');
-                    exit();
-                }
-                else {
-                    echo "<p>Erreur lors de l'inscription</p>";
-                }
+                echo "<p>Erreur lors de l'inscription</p>";
             }
         }
-
+    }
 ?>
 
 <!DOCTYPE html>
