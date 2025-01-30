@@ -74,6 +74,8 @@
         ?>
     </section>
 
+    <?php require_once(__DIR__ . '/../footer.php') ?>
+
 <?php
     // Suppression d'un plat
     if (isset($_POST['supprimer-plats'])) {
@@ -103,7 +105,6 @@
         var_dump($plat);
 
         if ($plat) {
-            
             // Récupère la catégorie
             $categorie = $plat['categories_plat'];
 
