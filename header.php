@@ -4,7 +4,7 @@
             <li><a href="moncompte.html"><h5>Carteo</h5></a></li>
         </ul>
         <ul class="nav-right">
-            <li><a href="moncompte.html">Mon Compte</a></li>
+            <li><a href="moncompte.html"><?php echo "Bonjour, ID : " . $_SESSION['user']['utilisateur_id'] ?></a></li>
         </ul>
     </nav>
 </header>
