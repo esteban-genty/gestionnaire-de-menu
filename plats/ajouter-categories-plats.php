@@ -49,7 +49,7 @@
                 $afficher_plat = false;
 
                 // Préparation de la requête SQL avec des paramètres
-                $requete = $bddPDO->prepare("INSERT INTO `plats` (`plat_id`, `categories_plat`, `titre_plat`, `description_plat`, `prix_plat`, `afficher_plat`) VALUES (NULL, :categorie, :titre, :description_plat, :prix, :afficher)");
+                $requete = $bddPDO->prepare("INSERT INTO `plats` (`plat_id`, `categories_plat`, `titre_plat`, `description_plat`, `prix_plat`, `afficher_plat`, `utilisateur_id`) VALUES (NULL, :categorie, :titre, :description_plat, :prix, :afficher, :utilisateur)");
 
                 if (!empty($categories_plat)) {
                     // Lier les valeurs des paramètres
@@ -58,6 +58,7 @@
                     $requete->bindValue(':description_plat', $description_plat);
                     $requete->bindValue(':prix', $prix_plat);
                     $requete->bindValue(':afficher', $afficher_plat);
+                    $requete->bindValue(':utilisateur', $_SESSION['user']['utilisateur_id']);
 
                     // Exécution de la requête
                     $result = $requete->execute();

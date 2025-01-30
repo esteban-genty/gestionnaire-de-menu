@@ -25,15 +25,18 @@
 
     <?php require_once(__DIR__ . '/../header.php'); ?>
 
-    <?php
-        $requete = "SELECT * FROM plats";
-        $result = $bddPDO->query($requete);
+    <?php 
+        // Requête pour récupérer les plats de l'utilisateur
+        $requete = "SELECT * FROM plats WHERE utilisateur_id = :user_id";
+        $requete_plats = $bddPDO->prepare($requete);
+        $requete_plats->bindValue(':user_id', $_SESSION['user']['utilisateur_id']);
+        $requete_plats->execute();
     ?>
 
     <h1>Supprimer un plat</h1>
     <section class="suppression-plats">
         <?php
-            while ($plats = $result->fetch(PDO::FETCH_ASSOC)) {
+            while ($plats = $requete_plats->fetch(PDO::FETCH_ASSOC)) {
                 if($plats['afficher_plat'] == 1) {
                     echo "<article>";
                     echo "<div class=\"detail\">";
@@ -41,7 +44,7 @@
                     echo "<h3> Catégorie : ". $plats['categories_plat'] . " | Prix : " . $plats['prix_plat'] . "€</h3>";
                     echo "</div>";
 
-                    echo "<form method=\"POST\" action=\"\">";
+                    echo "<form method=\"POST\" action=\"\">"; 
                     echo "<input type=\"hidden\" name=\"plat_id\" value=\"" . $plats['plat_id'] . "\">";
                     echo "<button type=\"submit\" name=\"supprimer-plats\">Supprimer</button>";
                     echo "</form>";
@@ -54,9 +57,8 @@
     <h1>Supprimer une catégorie de plat</h1>
     <section class="suppression-categories-plats">
         <?php
-            $result = $bddPDO->query($requete);
-            
-            while ($plats = $result->fetch(PDO::FETCH_ASSOC)) {
+            $requete_plats->execute();
+            while ($plats = $requete_plats->fetch(PDO::FETCH_ASSOC)) {
                 if($plats['afficher_plat'] == 0) {
                     echo "<article>";
                     echo "<div class=\"detail\">";
@@ -74,64 +76,40 @@
     </section>
 
     <?php
+        // Suppression d'un plat
         if (isset($_POST['supprimer-plats'])) {
             $plat_id = $_POST['plat_id'];
 
-            if($plat_id == 0){
-                echo "<p>Impossible de supprimer la catégorie par défaut.</p>";
-                exit;
-            } else{
-            
-                $requete = $bddPDO->prepare("DELETE FROM `plats` WHERE `plat_id` = :id");
+            $requete = $bddPDO->prepare("DELETE FROM `plats` WHERE `plat_id` = :id");
+            $requete->bindValue(':id', $plat_id, PDO::PARAM_INT);
+            $result = $requete->execute();
 
-                $requete->bindValue(':id', $plat_id, PDO::PARAM_INT);
-                
-                $result = $requete->execute();
-
-                if ($result) {
-                    echo "<p>Catégorie supprimée avec succès. ID : " . $plat_id . "</p>";
-                    header("Location: " . $_SERVER['PHP_SELF']);
-                    exit; 
-                } else {
-                    echo "<p>Erreur lors de la suppression de la catégorie.</p>";
-                }
+            if ($result) {
+                echo "<p>Plat supprimé avec succès. ID : " . $plat_id . "</p>";
+                header("Location: " . $_SERVER['PHP_SELF']);
+                exit; 
+            } else {
+                echo "<p>Erreur lors de la suppression du plat.</p>";
             }
         }
-    ?>
 
-    <?php
-        if(isset($_POST['supprimer-categories-plats']))
-        {
+        // Suppression d'une catégorie de plat
+        if (isset($_POST['supprimer-categories-plats'])) {
             $plat_id = $_POST['plat_id'];
 
-            if($plat_id == 1) {
-                echo "<p>Impossible de supprimer la catégorie par défaut.</p>";
-                exit;
-            } else{
+            $requete = $bddPDO->prepare("DELETE FROM `plats` WHERE `plat_id` = :id");
+            $requete->bindValue(':id', $plat_id, PDO::PARAM_INT);
+            $result = $requete->execute();
 
-               // while ($plats = $result->fetch(PDO::FETCH_ASSOC)) {
-                 //   if($plats['categories_plat'] ==  ) {
-                   // }
-
-                $requete = $bddPDO->prepare("DELETE FROM `plats` WHERE `plat_id` = :id");
-
-                $requete->bindValue(':id', $plat_id, PDO::PARAM_INT);
-                
-                $result = $requete->execute();
-
-                if ($result) {
-                    echo "<p>Catégorie supprimée avec succès. ID : " . $plat_id . "</p>";
-                    header("Location: " . $_SERVER['PHP_SELF']);
-                    exit; 
-                } else {
-                    echo "<p>Erreur lors de la suppression de la catégorie.</p>";
-                }
+            if ($result) {
+                echo "<p>Catégorie supprimée avec succès. ID : " . $plat_id . "</p>";
+                header("Location: " . $_SERVER['PHP_SELF']);
+                exit; 
+            } else {
+                echo "<p>Erreur lors de la suppression de la catégorie.</p>";
             }
         }
     ?>
-
-
-
 
 </body>
 </html>

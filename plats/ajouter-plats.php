@@ -29,18 +29,21 @@
         <h1>Ajouter un plat</h1>
         <form action="ajouter-plats.php" method="POST">
 
-        <?php 
-            $requete = "SELECT DISTINCT categories_plat FROM plats";
-            $result = $bddPDO->query($requete); 
-        ?>
-        <select name="categories_plat" id="categories_plat">
-            <option value="choisir-categories">Choisir Categorie</option>
-            <?php
-                while ($choisir_categories = $result->fetch(PDO::FETCH_NUM)) {
-                    echo "<option value='" . $choisir_categories[0] . "'>" . $choisir_categories[0] . "</option>";
-                }
+            <?php 
+                $requete = "SELECT DISTINCT categories_plat FROM plats WHERE utilisateur_id = :user_id";
+                $requete_plats = $bddPDO->prepare($requete);
+                $requete_plats->bindValue(':user_id', $_SESSION['user']['utilisateur_id']);
+                $requete_plats->execute();
             ?>
-        </select>
+            <select name="categories_plat" id="categories_plat">
+                <option value="choisir-categories">Choisir Categorie</option>
+                <?php
+                    while ($choisir_categories = $requete_plats->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<option value='" . $choisir_categories['categories_plat'] . "'>" . $choisir_categories['categories_plat'] . "</option>";
+                    }
+                ?>
+            </select>
+
 
             <input placeholder="Titre" type="text" name="titre_plat" required>
 
@@ -73,7 +76,7 @@
             if (!empty($categorie) && !empty($titre) && !empty($description_plat) && !empty($prix)) {
 
                 // Requête SQL
-                $requete = $bddPDO->prepare("INSERT INTO `plats` (categories_plat, titre_plat, description_plat, prix_plat, afficher_plat) VALUES (:categorie, :titre, :description_plat, :prix, :afficher)");
+                $requete = $bddPDO->prepare("INSERT INTO `plats` (categories_plat, titre_plat, description_plat, prix_plat, afficher_plat, utilisateur_id) VALUES (:categorie, :titre, :description_plat, :prix, :afficher, :utilisateur)");
 
                 // Change les valuer des paramètres de la requête SQL
                 $requete->bindValue(':categorie', $categorie);
@@ -81,6 +84,7 @@
                 $requete->bindValue(':description_plat', $description_plat);
                 $requete->bindValue(':prix', $prix);
                 $requete->bindValue(':afficher', $afficher);
+                $requete->bindValue(':utilisateur', $_SESSION['user']['utilisateur_id']);
 
                 // Exécution de la requête SQL
                 $result = $requete->execute();
@@ -98,8 +102,5 @@
         }
     ?>
 </section>
-
-
-
 </body>
 </html>
