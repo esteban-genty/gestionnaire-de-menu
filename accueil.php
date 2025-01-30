@@ -1,8 +1,12 @@
 <?php 
-session_start();
 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+require_once(__DIR__ . '/header.php');
+session_destroy();
 //var_dump($_SESSION);
-
+//echo $_SESSION['utilisateurId']['utilisateur_id'];
 ?>
 
 
@@ -28,7 +32,7 @@ session_start();
 
 <body>
     <!-- Header -->
-    <?php require_once(__DIR__ . '/header.php'); ?>
+
   
     <!-- Section d'accueil -->
     <section class="Accueil">
