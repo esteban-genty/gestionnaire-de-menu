@@ -101,3 +101,19 @@ p{
     font-weight: bold;
     line-height: 25px;
 } 
+
+@media screen and (max-width: 768px){
+    h1{
+        font-size: 2rem;
+    }
+    .suppression-plats{
+        display: flex;
+        justify-content: center;
+    }
+    .suppression-plats article{
+        width: 80%;
+    }
+    .suppression-categories-plats article{
+        width: 80%;
+    }
+}
