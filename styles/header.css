@@ -1,0 +1,38 @@
+header{
+  background-color: #EE7121;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  justify-content: center;
+}
+
+nav{
+  width: 88%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+ul{
+  list-style-type: none;
+}
+
+.nav-right{
+  font-size: 1.2rem;
+}
+
+.nav-left{
+  font-size: 2.3rem;
+}
+
+a{
+  text-decoration: none;
+  color: #512314;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.nav-left h5{
+  font-family: "Lobster", sans-serif;
+}

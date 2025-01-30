@@ -13,8 +13,6 @@ footer {
   background-color: rgba(242, 159, 65, 0.799) ;
   display: flex;
   justify-content: space-around;
-  width: 90%;
-  margin: 0 auto;
 }
 footer li {
   list-style: none;
