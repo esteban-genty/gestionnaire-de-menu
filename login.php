@@ -73,7 +73,15 @@ if (isset($_POST['email'])) {
 </head>
 
 <body>
-    <?php require_once(__DIR__ . '/header.php'); ?>
+<header>
+    <nav>
+        <ul class="nav-left">
+            <li><a href="moncompte.html" class="carteo"><h5>Carteo</h5></a></li>
+        </ul>
+       
+        
+    </nav>
+</header>
     <main>
         <h1>Connexion</h1>
 
