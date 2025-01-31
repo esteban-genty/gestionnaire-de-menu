@@ -102,7 +102,6 @@
         $requete_plat->bindValue(':plat_id', $plat_id, PDO::PARAM_INT);
         $requete_plat->execute();
         $plat = $requete_plat->fetch(PDO::FETCH_ASSOC);
-        var_dump($plat);
 
         if ($plat) {
             // Récupère la catégorie
@@ -120,7 +119,7 @@
 
             if ($result_plats && $result_categorie) {
                 echo "<p>Les plats de la catégorie et la catégorie ont été supprimés avec succès.</p>";
-                // header("Location: " . $_SERVER['PHP_SELF']);
+                header("Location: " . $_SERVER['PHP_SELF']);
                 exit; 
             } else {
                 echo "<p>Erreur lors de la suppression des plats et de la catégorie.</p>";
