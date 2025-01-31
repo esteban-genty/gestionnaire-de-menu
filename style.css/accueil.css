@@ -8,6 +8,7 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+     background-color: #F4EBDC;
 }
 
 /* Header */
@@ -89,7 +90,7 @@ button a:hover {
     font-size: larger;
 }
 .debut {
-    background-color: #F4EBDC;
+    background-color: #fae5c3;
     padding: 40px;
     text-align: center;
     border-radius: 10px;
@@ -201,62 +202,54 @@ button a:hover {
 }
 
 /* Footer */
-.footer {
-    position: relative;
-    color: rgb(255, 255, 255);
-    text-align: center;
-    padding: 50px 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+
+
+
+footer {
+  background-color:#EE7121 ;
+  display: flex;
+  justify-content: space-around;
+}
+footer li {
+  list-style: none;
+  line-height: 35px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+footer li a {
+  text-decoration: none;
+  color: rgba(30, 29, 29, 0.927);
+  text-transform: capitalize;
+  font-weight: 400;
 }
 
-.footer::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url(../assets/beef-stew.jpg);
-    background-size: cover;
-    background-position: center;
-    opacity: 0.8; /* Opacité de l'image */
-    z-index: -1; /* Place l'image en arrière-plan */
+h5 {
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  font-family: fantasy;
+}
+.footer-link {
+  padding: 10px;
+}
+.img-logo {
+  width: 350px;
+  height: 100px;
+  background: url(../assets/img-logo.png)center/cover;
 }
 
-.footer .footer-content {
-    position: relative;
-    z-index: 1;
+@media (max-width: 1000px) {
+  .img-logo {
+    width: 200px;
+    height: 100px;
+    background: url(../assets/img-logo.png)center/cover;
+  }
 }
-.footer-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.footer h2 {
-    font-family: "Lobster", sans-serif;
-    font-size: 4rem;
-}
-
-.footer p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    font-size: x-large;
-}
-
-/* Responsive Styles  à ameliorer */
-@media (max-width: 1024px) {
-    nav {
-        width: 100%;
-        padding: 10px 20px;
-    }
-
-    .recettes {
-        gap: 50px;
-    }
-
-    .footer h2 {
-        font-size: 3rem;
-    }
+@media (max-width: 500px) {
+  .img-logo {
+    visibility: hidden;
+  }
 }
 
 @media (max-width: 768px) {

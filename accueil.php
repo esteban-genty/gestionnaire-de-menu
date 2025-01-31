@@ -26,8 +26,8 @@ session_destroy();
         <!---------style CSS-------->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-        <link rel="stylesheet" href="Carteo.css/accueil.css">
-        <link rel="stylesheet" href="Carteo.css/header.css">
+        <link rel="stylesheet" href="style.css/accueil.css">
+        <link rel="stylesheet" href="style.css/header.css">
         <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
         <style>
         .popo {
@@ -38,14 +38,14 @@ session_destroy();
 }
 .popo {
   padding: 60px 20px;
-  background-color: #e6f7ff;
+  background-color: #F4EBDC;
   text-align: center;
   font-family: 'Roboto', sans-serif;
 }
 
 .popo h2 {
   font-size: 2.2rem;
-  color: #003366;
+  color: #512314;
   margin-bottom: 30px;
   font-weight: 700;
   font-family: "Lobster", sans-serif;
@@ -77,13 +77,13 @@ session_destroy();
 
 .caracteristique i {
   font-size: 3rem;
-  color: #1e90ff;
+  color:rgb(233, 118, 24);
   margin-bottom: 15px;
 }
 
 .caracteristique h3 {
   font-size: 1.4rem;
-  color: #003366;
+  color: #512314;
   margin-bottom: 10px;
   font-weight: 600;
 }
@@ -392,13 +392,40 @@ Préparez-vous à explorer des plats savoureux, simples ou sophistiqués, adapt�
       
 
     </main>
-    <footer class="footer">
-    <div class="footer-content">
-        <h2>CarTeo - Recettes Délicieuses</h2>
-        <p>Découvrez des recettes faciles et savoureuses à partager avec vos proches.</p>
-       
-    </div>
-  
+
+    <!-------------------FOOTER--------------------->
+    <footer>
+  <div class="footer-link">
+    <div class="img-logo"></div>
+  </div>
+  <div class="footer-link">
+    <h5>solutions</h5>
+    <li><a href="">fiches recettes</a></li>
+    <li><a href="">base de données completes</a></li>
+    <li><a href="">chefTouch collection</a></li>
+    <li><a href="">marques et partenaires</a></li>
+  </div>
+  <div class="footer-link">
+    <h5>metiers</h5>
+    <li><a href="">cuisinier/restaurateur</a></li>
+    <li><a href="">boulanger/patissier</a></li>
+    <li><a href="">chocolatier/confiseur</a></li>
+    <li><a href="">traiteur/charcutier</a></li>
+    <li><a href="">glacier</a></li>
+  </div>
+  <div class="footer-link">
+    <h5>profils</h5>
+    <li><a href="">etudiant/apprenti</a></li>
+    <li><a href="">formateur/consultant</a></li>
+    <li><a href="">chef d'entreprise</a></li>
+    <li><a href="">ecole</a></li>
+  </div>
+  <div class="footer-link">
+    <h5>compte</h5>
+    <li><a href="login.php">se connecter</a></li>
+    <li><a href="">s'inscrire</a></li>
+    <li><a href="">FAQ</a></li>
+  </div>
 </footer>
 
 </body>
