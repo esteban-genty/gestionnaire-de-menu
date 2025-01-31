@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="../styles/supprimer.css">
     <link rel="stylesheet" href="../styles/root.css">
+    <link rel="stylesheet" href="../styles/foooter.css">
+
 
     <!-- Police d'écriture -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

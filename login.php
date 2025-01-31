@@ -1,20 +1,6 @@
 <?php
 
-// Connexion à la base de données
-$host = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'carteo';
-session_start();
-
-try {
-    // Connexion avec PDO
-    $bddPDO = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $bddPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo "Erreur de connexion : " . $e->getMessage();
-    exit();
-}
+require_once(__DIR__ . '/start.php');
 
 // Vérification si le formulaire est soumis
 
@@ -59,16 +45,23 @@ if (isset($_POST['email'])) {
 
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Site gestion de recettes">
+    <meta name="keywords" content="Carteo, Recette, Restaurant, Gestion de recette">
+    <meta name="author" content="Estéban, Antoine, Lamine, Sébastien">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/login.css">
-    <link rel="stylesheet" href="style/accueil.css">
+    <title>Carteo - Inscritpion</title>
+
+    <!-- Fichier styles -->
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/inscription.css">
+    <link rel="stylesheet" href="styles/root.css">
+
+    <!-- Police d'écriture -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <title>Connexion</title>
 </head>
 
 <body>
@@ -77,15 +70,13 @@ if (isset($_POST['email'])) {
         <ul class="nav-left">
             <li><a href="accueil.php" class="carteo"><h5>Carteo</h5></a></li>
         </ul>
-       
-        
     </nav>
 </header>
     <main>
         <h1>Connexion</h1>
 
         <section class="formsection">
-            <form action="" method="post">
+            <form action="dashboard.php" method="post">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" required>
 

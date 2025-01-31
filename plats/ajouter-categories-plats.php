@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="../styles/ajouter-categories-plats.css">
     <link rel="stylesheet" href="../styles/root.css">
+    <link rel="stylesheet" href="../styles/footer.css">
 
     <!-- Police d'écriture -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
