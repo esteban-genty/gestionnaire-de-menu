@@ -13,7 +13,7 @@
     <!-- Fichier styles -->
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="../styles/supprimer.css">
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/root.css">
 
     <!-- Police d'écriture -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
