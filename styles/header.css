@@ -40,7 +40,7 @@ header {
         }
 
         .carteo a {
-            font-size: 3rem;
+            font-size: 8rem;
         }
 
         .nav-left h5 {
@@ -51,7 +51,7 @@ header {
             display: block;
             background-color: #512314;
             font-size: 1rem;
-            color: #F4EBDC;
+            color: #ffffff;
             padding: 10px 20px;
             border-radius: 15px;
         }
@@ -63,16 +63,17 @@ header {
             color: #512314;
             padding: 7px 17px;
             border-radius: 15px;
+            background-color: #ffffff;
         }
 
         .btn-connexion:hover {
             background-color: #512314;
-            color: #EE7121;
+            color: #ffffff;
         }
 
         .btn-inscription:hover {
             background-color: #512314;
-            color: #F4EBDC;
+            color: #ffffff;
         }
     }
 }

@@ -142,6 +142,7 @@ button a:hover {
     font-size: 0.9em;
     box-shadow: 0 2px 4px rgba(58, 57, 57, 0.1);
     background-color: #ffffff;
+    color: #000000;
 
 }
 
@@ -201,3 +202,9 @@ button a:hover {
 }
 
 /* Footer */
+.aucun{
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 20px;
+}

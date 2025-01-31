@@ -1,14 +1,22 @@
 <?php 
+require_once("config.php");
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
 session_destroy();
-//var_dump($_SESSION);
-//echo $_SESSION['utilisateurId']['utilisateur_id'];
-?>
 
+// Récupération des recettes depuis la base de données
+try {
+    $sql = "SELECT id, titre, description, image, temps_preparation, ingredients FROM recettes LIMIT 8";
+    $stmt = $pdo->query($sql);
+    $recettes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Erreur lors de la récupération des recettes : " . $e->getMessage());
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -16,20 +24,20 @@ session_destroy();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Gestionnaire de Menu</title>
-    
-        <!-- Police d'écriture -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-   
-   
-        <!---------style CSS-------->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-        <link rel="stylesheet" href="styles/accueil.css">
-        <link rel="stylesheet" href="styles/header.css">
-        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-        <style>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles/accueil.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    <style>
         .popo {
   padding: 60px 20px;
   background: rgba(253, 204, 175, 0.8);
@@ -143,259 +151,110 @@ session_destroy();
 </style>
 </head>
 
-
 <body>
+
     <!-- Header -->
     <?php require_once(__DIR__ . '/header.php'); ?>
-  
-    <!-- Section d'accueil -->
-    <section class="Accueil">
-    <div class="background-container">
-    <div class="box">
-        <h2>Bienvenue sur CarteO</h2>
-        <p>Bienvenue sur Carteo ! 🍽️✨
-Découvrez un univers gourmand où chaque recette est une invitation au voyage des saveurs. Que vous soyez un chef passionné ou un amateur en quête d’inspiration, notre collection de recettes saura éveiller votre créativité culinaire.
 
-Préparez-vous à explorer des plats savoureux, simples ou sophistiqués, adaptés à toutes les envies et occasions. Bon appétit et bonne découverte sur Carteo ! 🍴👨‍🍳!</p>
-       
-    </div>
-</div>
+    <section class="Accueil">
+        <div class="background-container">
+            <div class="box">
+                <h2>Bienvenue sur CarteO</h2>
+                <p>Bienvenue sur Carteo ! 🍽️✨ Découvrez un univers gourmand où chaque recette est une invitation au voyage des saveurs.</p>
+            </div>
+        </div>
         <p style="font-family: cursive;">Découvrez plus en vous connectant</p>
-        <button><a href="inscription.php">Inscrivez vous gratuitement</a> </button>
+        <button><a href="inscription.php">Inscrivez-vous gratuitement</a></button>
         <p>Ou</p>
-        <a href="login.php" style="text-decoration: underline;color: black;">Connectez vous</a>
-           
- 
+        <a href="login.php" style="text-decoration: underline;color: black;">Connectez-vous</a>
+    </section>
 
     </section>
 
 
-    <!---------------------------->
-  
-   
-
-
-    <section class="popo">
-  <h2>Pourquoi choisir CarteO ?</h2>
-  <div class="caracteristiques">
-    <div class="caracteristique">
-      <i class="fas fa-utensils"></i>
-      <h3>Recettes variées et gourmandes</h3>
-      <p>CarteO vous propose une large sélection de recettes pour tous les goûts, des plats rapides aux créations plus élaborées.</p>
-    </div>
-    <div class="caracteristique">
-      <i class="fas fa-mobile-alt"></i>
-      <h3>Facilité d'utilisation</h3>
-      <p>Naviguez facilement grâce à une interface simple et claire, optimisée pour tous vos appareils.</p>
-    </div>
-    <div class="caracteristique">
-      <i class="fas fa-lemon"></i>
-      <h3>Ingrédients frais et sains</h3>
-      <p>Nous mettons l'accent sur des ingrédients frais et de qualité pour vous offrir des repas à la fois délicieux et équilibrés.</p>
-    </div>
-    <div class="caracteristique">
-      <i class="fas fa-user-chef"></i>
-      <h3>Accessibilité à tous les niveaux de cuisine</h3>
-      <p>Que vous soyez un chef expérimenté ou un débutant, CarteO s’adapte à tous les niveaux grâce à des instructions détaillées et des astuces.</p>
-    </div>
-    <div class="caracteristique">
-      <i class="fas fa-calendar-alt"></i>
-      <h3>Planification des repas</h3>
-      <p>Organisez vos repas à l’avance grâce à notre fonctionnalité de planification, pour une semaine sans stress.</p>
-    </div>
-    <div class="caracteristique">
-      <i class="fas fa-users"></i>
-      <h3>Communauté de passionnés</h3>
-      <p>Rejoignez une communauté active de gourmets qui partagent leurs astuces, leurs recettes et leurs expériences culinaires.</p>
-    </div>
-  </div>
-</section>
-<!-------------------reseaux sociaux------------------->
-<div class="social-media">
-  <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-  <a href="https://www.twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
-  <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-  <a href="https://www.linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
- 
-</div>
-<!-------------------reseaux sociaux------------------->
-
 <!---------------------------->
 
-<div class="debut">
-  <p>Ayez un avant gout de nos fabuleuses recettes</p>
+
+
+
+<section class="popo">
+<h2>Pourquoi choisir CarteO ?</h2>
+<div class="caracteristiques">
+<div class="caracteristique">
+  <i class="fas fa-utensils"></i>
+  <h3>Recettes variées et gourmandes</h3>
+  <p>CarteO vous propose une large sélection de recettes pour tous les goûts, des plats rapides aux créations plus élaborées.</p>
 </div>
+<div class="caracteristique">
+  <i class="fas fa-mobile-alt"></i>
+  <h3>Facilité d'utilisation</h3>
+  <p>Naviguez facilement grâce à une interface simple et claire, optimisée pour tous vos appareils.</p>
+</div>
+<div class="caracteristique">
+  <i class="fas fa-lemon"></i>
+  <h3>Ingrédients frais et sains</h3>
+  <p>Nous mettons l'accent sur des ingrédients frais et de qualité pour vous offrir des repas à la fois délicieux et équilibrés.</p>
+</div>
+<div class="caracteristique">
+  <i class="fas fa-user-chef"></i>
+  <h3>Accessibilité à tous les niveaux de cuisine</h3>
+  <p>Que vous soyez un chef expérimenté ou un débutant, CarteO s’adapte à tous les niveaux grâce à des instructions détaillées et des astuces.</p>
+</div>
+<div class="caracteristique">
+  <i class="fas fa-calendar-alt"></i>
+  <h3>Planification des repas</h3>
+  <p>Organisez vos repas à l’avance grâce à notre fonctionnalité de planification, pour une semaine sans stress.</p>
+</div>
+<div class="caracteristique">
+  <i class="fas fa-users"></i>
+  <h3>Communauté de passionnés</h3>
+  <p>Rejoignez une communauté active de gourmets qui partagent leurs astuces, leurs recettes et leurs expériences culinaires.</p>
+</div>
+</div>
+</section>
+    <!-- Affichage des recettes dynamiques -->
 
-
-
-
-
-    <!-- Section principale -->
-    <main>
-        <section class="recettes" >
-            <!-- article pour une carte -->
-            <article >
-                <div class="carte">
-                    <img src="assets/test pizza.jpg" alt="Image 2">
-                    <h3>Recette 1</h3>
-                    <div class="temps-box">
-                    <p style="color:rgb(19, 18, 18)";>Tps</p>
-                    </div>
-                    <div>
-                        <p>Liste des ingrédients :</p>
-                    </div>
-                    <div class="conteneur-texte">
-                        <p>- 200g de farine</p>
-                        <p>- 2 œufs</p>
-                        <p>- 50g de sucre</p>
-                    </div>
-                </div>
-               
-                </div>
-            </article>
-            <!--  -->
+<section class="recettes">
+    <?php if (!empty($recettes)): ?>
+        <?php foreach ($recettes as $recette): ?>
             <article>
                 <div class="carte">
-                    <img src="assets/test pizza.jpg" alt="Image 2">
-                    <h3>Recette 2</h3>
+                    <!-- Vérification si l'image est présente -->
+                    <img src="<?php echo !empty($recette['image']) ? 'assets/' . htmlspecialchars($recette['image']) : 'assets/default.jpg'; ?>" alt="<?php echo htmlspecialchars($recette['titre']); ?>">
+                    <h3><?= htmlspecialchars($recette['titre']) ?></h3>
                     <div class="temps-box">
-                        <p style="color:rgb(19, 18, 18)";>Tps</p>
+                        <!-- Affichage du temps de préparation -->
+                        <p><?= htmlspecialchars($recette['temps_preparation']) ?> min</p>
                     </div>
                     <div>
-                        <p>Liste des ingrédients :</p>
+                        <p>Ingrédients :</p>
                     </div>
                     <div class="conteneur-texte">
-                        <p>- 200g de farine</p>
-                        <p>- 2 œufs</p>
-                        <p>- 50g de sucre</p>
+                        <?php
+                        $ingredients = explode(',', $recette['ingredients']);
+                        foreach ($ingredients as $ingredient) {
+                            echo "<p>- " . htmlspecialchars(trim($ingredient)) . "</p>";
+                        }
+                        ?>
                     </div>
-                </div>
-               
                 </div>
             </article>
-            <article>
-                <div class="carte">
-                    <img src="assets/test pizza.jpg" alt="Image 2">
-                    <h3>Recette 3</h3>
-                    <div class="temps-box">
-                    <p style="color:rgb(19, 18, 18)";>Tps</p>
-                    </div>
-                    <div>
-                        <p>Liste des ingrédients :</p>
-                    </div>
-                    <div class="conteneur-texte">
-                        <p>- 200g de farine</p>
-                        <p>- 2 œufs</p>
-                        <p>- 50g de sucre</p>
-                    </div>
-                </div>
-               
-                </div>
-            </article>
-            <article>
-                <div class="carte">
-                    <img src="assets/test pizza.jpg" alt="Image 2">
-                    <h3>Recette 4</h3>
-                    <div class="temps-box">
-                    <p style="color:rgb(19, 18, 18)";>Tps</p>
-                    </div>
-                    <div>
-                        <p>Liste des ingrédients :</p>
-                    </div>
-                    <div class="conteneur-texte">
-                        <p>- 200g de farine</p>
-                        <p>- 2 œufs</p>
-                        <p>- 50g de sucre</p>
-                    </div>
-                </div>
-               
-                </div>
-            </article>
-            <article>
-                <div class="carte">
-                    <img src="assets/test pizza.jpg" alt="Image 2">
-                    <h3>Recette 5</h3>
-                    <div class="temps-box">
-                    <p style="color:rgb(19, 18, 18)";>Tps</p>
-                    </div>
-                    <div>
-                        <p>Liste des ingrédients :</p>
-                    </div>
-                    <div class="conteneur-texte">
-                        <p>- 200g de farine</p>
-                        <p>- 2 œufs</p>
-                        <p>- 50g de sucre</p>
-                    </div>
-                </div>
-               
-                </div>
-            </article>
-            <article>
-                <div class="carte">
-                    <img src="assets/test pizza.jpg" alt="Image 2">
-                    <h3>Recette 6</h3>
-                    <div class="temps-box">
-                    <p style="color:rgb(19, 18, 18)";>Tps</p>
-                    </div>
-                    <div>
-                        <p>Liste des ingrédients :</p>
-                    </div>
-                    <div class="conteneur-texte">
-                        <p>- 200g de farine</p>
-                        <p>- 2 œufs</p>
-                        <p>- 50g de sucre</p>
-                    </div>
-                </div>
-               
-                </div>
-            </article>
-            <article>
-                <div class="carte">
-                    <img src="assets/test pizza.jpg" alt="Image 2">
-                    <h3>Recette 7</h3>
-                    <div class="temps-box">
-                    <p style="color:rgb(19, 18, 18)";>Tps</p>
-                    </div>
-                    <div>
-                        <p>Liste des ingrédients :</p>
-                    </div>
-                    <div class="conteneur-texte">
-                        <p>- 200g de farine</p>
-                        <p>- 2 œufs</p>
-                        <p>- 50g de sucre</p>
-                    </div>
-                </div>
-               
-                </div>
-            </article>
-            <article>
-                <div class="carte">
-                    <img src="assets/test pizza.jpg" alt="Image 2">
-                    <h3>Recette 8</h3>
-                    <div class="temps-box">
-                    <p style="color:rgb(19, 18, 18)";>Tps</p>
-                    </div>
-                    <div>
-                        <p>Liste des ingrédients :</p>
-                    </div>
-                    <div class="conteneur-texte">
-                        <p>- 200g de farine</p>
-                        <p>- 2 œufs</p>
-                        <p>- 50g de sucre</p>
-                    </div>
-                </div>
-               
-                </div>
-            </article>
-            <!--  -->
-        </section>
-      
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p class="aucun">Aucune recette disponible pour le moment.</p>
+    <?php endif; ?>
+</section>
 
-    </main>
+    <!-- Réseaux sociaux -->
+    <div class="social-media">
+        <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+    </div>
 
-    <!-------------------FOOTER--------------------->
-      <?php require_once(__DIR__ . '/footer.php'); ?>
-  
+    <!-- Footer -->
+    <?php require_once(__DIR__ . '/footer.php'); ?>
 
 </body>
 </html>
