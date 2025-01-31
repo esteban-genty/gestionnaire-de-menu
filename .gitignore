@@ -1,6 +1,6 @@
 header.php
-header.css
+styles/header.css
 login.php
-login.css
+styles/login.css
 footer.php
-footer.css
+styles/footer.css
