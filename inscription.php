@@ -56,7 +56,7 @@
         </section>
         <h1>Inscription</h1>
         <section class="formsection">
-            <form action="" method="post">
+            <form action="login.php" method="post">
                 <label for="">Société</label>
                 <input type="text" name="societe" id="societe" required>
                 <label for="">Email</label>
