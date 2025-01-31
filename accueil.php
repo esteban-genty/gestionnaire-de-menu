@@ -3,7 +3,7 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-require_once(__DIR__ . '/header.php');
+
 session_destroy();
 //var_dump($_SESSION);
 //echo $_SESSION['utilisateurId']['utilisateur_id'];
@@ -27,7 +27,7 @@ session_destroy();
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
         <link rel="stylesheet" href="Carteo.css/accueil.css">
-        <link rel="preconnect" href="Carteo.css/header.css" >
+        <link rel="stylesheet" href="Carteo.css/header.css">
         <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
         <style>
         .popo {
@@ -146,7 +146,7 @@ session_destroy();
 
 <body>
     <!-- Header -->
-
+    <?php require_once(__DIR__ . '/header.php'); ?>
   
     <!-- Section d'accueil -->
     <section class="Accueil">

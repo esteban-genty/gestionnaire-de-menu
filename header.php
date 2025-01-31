@@ -1,7 +1,7 @@
 <header>
     <nav>
         <ul class="nav-left">
-            <li><a href="moncompte.html" class="carteo"><h5>Carteo</h5></a></li>
+            <li><a href="accueil.php" class="carteo"><h5>Carteo</h5></a></li>
         </ul>
         <ul class="nav-right">
             <?php if(isset($_SESSION['utilisateur'])): ?>
