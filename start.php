@@ -1,5 +1,4 @@
 <?php
-
   
     // Information pour se connecter
     $host = 'localhost';
