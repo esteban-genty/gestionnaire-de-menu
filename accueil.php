@@ -394,6 +394,7 @@ Préparez-vous à explorer des plats savoureux, simples ou sophistiqués, adapt�
     </main>
 
     <!-------------------FOOTER--------------------->
+      <?php require_once(__DIR__ . '/footer.php'); ?>
   
 
 </body>
