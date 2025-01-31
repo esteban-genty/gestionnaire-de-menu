@@ -1,0 +1,203 @@
+/* */
+:root {
+    --primary-color: #EE7121;  
+}
+
+/* styles general */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+     background-color: #F4EBDC;
+}
+
+/* Header */
+header {
+    background-color: var(--primary-color); /* */
+    display: flex;
+    align-items: center;
+    height: 80px;
+    justify-content: center;
+}
+
+nav {
+    width: 88%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-right {
+    font-size: 1.2rem;
+    
+}
+
+.nav-left {
+    font-size: 2.3rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary-color); 
+    font-weight: bold;
+    
+}
+
+.nav-left h5 {
+    font-family: "Lobster", sans-serif;
+}
+
+/* Button inscription */
+button {
+    background-color: #db9f1dc5;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #512314; /* Couleur de texte */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button a {
+    color: inherit; 
+    text-decoration: none; 
+}
+
+button:hover {
+    background-color: #f5a94777; 
+    transform: scale(1.05); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+/* Effet survol boi */
+button a:hover {
+    text-decoration: underline;
+    color: #512314;
+}
+/* Section d'accueil */
+.Accueil {
+    text-align: center;
+    padding: 60px;
+    background-color: var(--accent-color); /* Light Beige */
+    margin-bottom: 30px;
+}
+
+.Accueil button {
+    margin-top: 10px;
+    font-size: larger;
+}
+.debut {
+    background-color: #fae5c3;
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 600px;
+}
+
+.debut p {
+    font-family: 'Lobster', cursive;
+    font-size: 2rem;
+    color: #EE7121;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+/* Recettes Section */
+.recettes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 100px;
+    padding: 60px;
+    max-width: 1400px;
+    margin: 80px auto;
+   
+}
+
+.carte {
+    background: rgba(253, 204, 175, 0.8);
+    border-radius: 2px;
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    width: 300px;
+    cursor: pointer;
+    border-radius: 28px;
+}
+
+.temps-box {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 0.9em;
+    box-shadow: 0 2px 4px rgba(58, 57, 57, 0.1);
+    background-color: #ffffff;
+
+}
+
+.carte img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.carte h3 {
+    margin: 15px 0 10px;
+    font-size: 1.5em;
+    color: var(--text-color); /* Dark Blue for titles */
+}
+
+.carte p {
+    color: #ffffff;
+    font-size: 0.9em;
+}
+
+/* Hover effect */
+.conteneur-texte {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.8s ease, max-height 0.8s ease;
+    background: #555252;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+}
+
+.carte:hover .conteneur-texte {
+    opacity: 1;
+    max-height: 200px;
+    padding: 10px;
+}
+
+/* Image  background */
+.background-container {
+    background-image: url(../assets/beef-stew.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    background: rgba(253, 204, 175, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 50%;
+    font-size: larger;
+}
+
+/* Footer */
