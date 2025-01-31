@@ -33,7 +33,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: lightgray;
+  background-color: rgb(81, 35, 20);
   border-radius: 10px;
   
 }
@@ -54,21 +54,28 @@ h1 {
 }
 h3 {
   text-transform: capitalize;
+  color: white;
+}
+span {
+  color : white;
 }
 .btn-add {
   background-color: rgba(0, 128, 0, 0.658);
+  color: white;
 }
 .btn-add:hover{
   background-color: rgba(69, 141, 69, 0.495);
 }
 .btn-edit {
   background-color: rgba(255, 255, 0, 0.63);
+  color: white;
 }
 .btn-edit:hover {
   background-color: rgba(188, 188, 56, 0.521);
 }
 .btn-delete {
   background-color: rgba(255, 0, 0, 0.607);
+  color: white;
 }
 .btn-delete:hover {
   background-color: rgba(215, 81, 81, 0.461);
