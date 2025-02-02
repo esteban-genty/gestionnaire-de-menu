@@ -27,7 +27,7 @@ footer li a {
   font-weight: 400;
 }
 
-h5 {
+.footer-h5 {
   text-transform: capitalize;
   font-size: 1.2rem;
 }
@@ -49,7 +49,7 @@ h5 {
     width: 250px;
     height: 70px;
   }
-  h5 {
+  .footer-h5 {
     font-size: 1.5rem !important;
     margin-bottom: 10px;
     text-align: center;
