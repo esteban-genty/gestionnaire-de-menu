@@ -70,8 +70,6 @@ require_once(__DIR__ . '/../start.php') ?>
     </section>
     <section class="validation">
 
-    <?php require_once(__DIR__ . '/../footer.php') ?>
-
     <?php
         if (isset($_POST['enregistrer'])) {
 
@@ -118,5 +116,6 @@ require_once(__DIR__ . '/../start.php') ?>
         }
     ?>
 </section>
+<?php require_once(__DIR__ . '/../footer.php') ?>
 </body>
 </html>

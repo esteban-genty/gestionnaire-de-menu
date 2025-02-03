@@ -24,7 +24,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <!---------style CSS-------->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-        <link rel="stylesheet" href="styles/accueil.css">
+        <link rel="stylesheet" href="styles/index.css">
         <link rel="stylesheet" href="styles/header.css">
         <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
         <style>

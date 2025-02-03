@@ -38,6 +38,10 @@ require_once(__DIR__ . '/start.php');?>
 <?php require_once(__DIR__ . '/header.php'); ?>
 
   <h1>information</h1>
+  <section class="info">
+    <p>Vous êtes connecté en tant que <?= $_SESSION['utilisateur']['prenom'] ?></p>
+    <button><a href="logout.php">Déconnexion</a></button>
+  </section>
   <section class="dashboard">
     <div class="infos">
       <div class="infos-left">
@@ -46,7 +50,7 @@ require_once(__DIR__ . '/start.php');?>
       </div>
       <div class="infos-right">
         <ul>
-          <li><a href="plats/ajouter-categories-plats" class="btn-add">ajouter</a></li>
+          <li><a href="plats/ajouter-categories-plats" class="btn-add">Ajouter</a></li>
           <li><a href="" class="btn-edit">modifier</a></li>
           <li><a href="plats/supprimer-plats" class="btn-delete">supprimer</a></li>
         </ul>
@@ -55,11 +59,11 @@ require_once(__DIR__ . '/start.php');?>
     <div class="infos">
       <div class="infos-left">
         <h3>Plats</h3>
-        <span>nombre:</span>
+        <span>Nombre:</span>
       </div>
       <div class="infos-right">
         <ul>
-          <li><a href="plats/ajouter-plats.php" class="btn-add">ajouter</a></li>
+          <li><a href="plats/ajouter-plats.php" class="btn-add">Ajouter</a></li>
           <li><a href="" class="btn-edit">modifier</a></li>
           <li><a href="" class="btn-delete">supprimer</a></li>
         </ul>
