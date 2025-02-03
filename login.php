@@ -40,7 +40,7 @@ if (isset($_POST['email'])) {
 
                 //SESSION pour garder les données de l'utilisateur aprés la verification 
                 $_SESSION['utilisateur'] = $user;
-                header("Location: accueil.php");
+                header("Location: index.php");
 
                 exit();
             } else {
