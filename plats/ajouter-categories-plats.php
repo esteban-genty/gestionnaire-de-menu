@@ -2,7 +2,7 @@
 
 // Démarrer la session si ce n'est pas déjà fait
 session_start();
-var_dump($_SESSION);
+// var_dump($_SESSION);
 
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['utilisateur'])) {

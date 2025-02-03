@@ -10,8 +10,16 @@ if (!isset($_SESSION['utilisateur'])) {
     exit;
 }
 
+// Connexion à la base de données
+require_once(__DIR__ . '/start.php');
 
-require_once(__DIR__ . '/start.php');?>
+// Requête pour obtenir le nombre de catégories distinctes
+$requete_nombre_categories = "SELECT COUNT(DISTINCT categories_plat) FROM plats WHERE utilisateur_id = :user_id";
+$stmt = $bddPDO->prepare($requete_nombre_categories);
+$stmt->execute(['user_id' => $_SESSION['utilisateur']['utilisateur_id']]);
+$nombre_categories = $stmt->fetchColumn();
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +29,7 @@ require_once(__DIR__ . '/start.php');?>
     <meta name="keywords" content="Carteo, Recette, Restaurant, Gestion de recette">
     <meta name="author" content="Estéban, Antoine, Lamine, Sébastien">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carteo - Inscritpion</title>
+    <title>Carteo - Inscription</title>
 
     <!-- Fichier styles -->
     <link rel="stylesheet" href="styles/dashboard.css">
@@ -37,7 +45,7 @@ require_once(__DIR__ . '/start.php');?>
 <body>
 <?php require_once(__DIR__ . '/header.php'); ?>
 
-  <h1>information</h1>
+  <h1>Information</h1>
   <section class="info">
     <p>Vous êtes connecté en tant que <?= $_SESSION['utilisateur']['prenom'] ?></p>
     <button><a href="logout.php">Déconnexion</a></button>
@@ -45,44 +53,29 @@ require_once(__DIR__ . '/start.php');?>
   <section class="dashboard">
     <div class="infos">
       <div class="infos-left">
-        <h3>categories - plats</h3>
-        <span>nombre:</span>
+        <h3>Catégories - Plats</h3>
+        <span>Nombre: <?= $nombre_categories ?></span>
       </div>
       <div class="infos-right">
         <ul>
           <li><a href="plats/ajouter-categories-plats" class="btn-add">Ajouter</a></li>
-          <li><a href="" class="btn-edit">modifier</a></li>
-          <li><a href="plats/supprimer-plats" class="btn-delete">supprimer</a></li>
+          <li><a href="" class="btn-edit">Modifier</a></li>
+          <li><a href="plats/supprimer-plats" class="btn-delete">Supprimer</a></li>
         </ul>
       </div>
     </div>
     <div class="infos">
       <div class="infos-left">
         <h3>Plats</h3>
-        <span>Nombre:</span>
       </div>
       <div class="infos-right">
         <ul>
           <li><a href="plats/ajouter-plats.php" class="btn-add">Ajouter</a></li>
-          <li><a href="" class="btn-edit">modifier</a></li>
-          <li><a href="" class="btn-delete">supprimer</a></li>
+          <li><a href="" class="btn-edit">Modifier</a></li>
+          <li><a href="plats/supprimer-plats.php" class="btn-delete">Supprimer</a></li>
         </ul>
       </div>
     </div>
-    <div class="infos">
-      <div class="infos-left">
-        <h3>Menus</h3>
-        <span>nombre:</span>
-      </div>
-      <div class="infos-right">
-        <ul>
-          <li><a href="" class="btn-add">ajouter</a></li>
-          <li><a href="" class="btn-edit">modifier</a></li>
-          <li><a href="" class="btn-delete">supprimer</a></li>
-        </ul>
-      </div>
-    </div>
-
   </section>
 
   <?php require_once(__DIR__ . '/footer.php'); ?>
