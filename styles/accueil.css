@@ -1,18 +1,21 @@
-/* */
 :root {
-    --primary-color: #EE7121;  
+    --primary-color: #EE7121;
+    --secondary-color: #512314; 
+    --text-color: #2D2D2D;  
+    --background-light: #F4EBDC;
+    --card-background: rgba(253, 204, 175, 0.8);
 }
 
-/* styles general */
+/* Styles généraux */
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-     background-color: #F4EBDC;
+    background-color: var(--background-light);
 }
 
 /* Header */
 header {
-    background-color: var(--primary-color); /* */
+    background-color: var(--primary-color);
     display: flex;
     align-items: center;
     height: 80px;
@@ -29,25 +32,24 @@ nav {
 
 .nav-right {
     font-size: 1.2rem;
-    
 }
 
 .nav-left {
     font-size: 2.3rem;
 }
 
-a {
-    text-decoration: none;
-    color: var(--secondary-color); 
-    font-weight: bold;
-    
-}
-
 .nav-left h5 {
     font-family: "Lobster", sans-serif;
 }
 
-/* Button inscription */
+/* Liens */
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* Bouton inscription */
 button {
     background-color: #db9f1dc5;
     border: none;
@@ -56,31 +58,26 @@ button {
     cursor: pointer;
     font-size: 1.1rem;
     font-weight: bold;
-    color: #512314; /* Couleur de texte */
+    color: var(--secondary-color);
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 button a {
-    color: inherit; 
-    text-decoration: none; 
+    color: inherit;
+    text-decoration: none;
 }
 
 button:hover {
-    background-color: #f5a94777; 
-    transform: scale(1.05); 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    background-color: #f5a94777;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Effet survol boi */
-button a:hover {
-    text-decoration: underline;
-    color: #512314;
-}
-/* Section d'accueil */
+/* Accueil */
 .Accueil {
     text-align: center;
     padding: 60px;
-    background-color: var(--accent-color); /* Light Beige */
+    background-color: var(--background-light);
     margin-bottom: 30px;
 }
 
@@ -88,99 +85,125 @@ button a:hover {
     margin-top: 10px;
     font-size: larger;
 }
-.debut {
-    background-color: #fae5c3;
-    padding: 40px;
+
+/* "Pourquoi choisir CarteO" */
+.popo {
+    padding: 60px 20px;
+    background: var(--card-background);
     text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 40px auto;
-    max-width: 600px;
+    font-family: 'Roboto', sans-serif;
 }
 
-.debut p {
-    font-family: 'Lobster', cursive;
-    font-size: 2rem;
-    color: #EE7121;
-    margin: 0;
-    padding: 0;
-}
-
-
-
-
-/* Recettes Section */
-.recettes {
+.caracteristiques {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 100px;
-    padding: 60px;
-    max-width: 1400px;
-    margin: 80px auto;
-   
+    gap: 30px;
+    max-width: 950px;
+    margin: 0 auto;
 }
 
-.carte {
-    background: rgba(253, 204, 175, 0.8);
-    border-radius: 2px;
-    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+.caracteristique {
+    background: var(--card-background);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: left;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.caracteristique:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.caracteristique i {
+    font-size: 3rem;
+    color: rgb(233, 118, 24);
+    margin-bottom: 15px;
+}
+
+/* Section plats */
+.plats {
+    padding: 50px 20px;
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
-    width: 300px;
-    cursor: pointer;
-    border-radius: 28px;
+    background: #fffaf0;
 }
 
-.temps-box {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    padding: 5px 10px;
-    border-radius: 50px;
-    font-size: 0.9em;
-    box-shadow: 0 2px 4px rgba(58, 57, 57, 0.1);
-    background-color: #ffffff;
-    color: #000000;
-
+.plats h2 {
+    font-size: 2.2rem;
+    color: #512314;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-family: "Lobster", sans-serif;
 }
 
-.carte img {
+/* Conteneur des plats */
+.plats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1100px; /* Ajuste la largeur max */
+    margin: 0 auto;
+}
+
+/* Carte des plats */
+.plats .carte {
+    background: rgba(253, 204, 175, 0.8);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    max-width: 250px;
+    text-align: left;
+}
+
+.plats .carte:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Titres des plats */
+.plats .carte h3 {
+    font-size: 1.4rem;
+    color: #512314;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Texte */
+.plats .carte p {
+    font-size: 1rem;
+    color: #666666;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+.plats .carte img {
     width: 100%;
-    height: 200px;
+    height: 180px; /* Ajuste la hauteur */
     object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+/* Responsive : 2 colonnes max  petits écrans */
+@media (max-width: 768px) {
+    .plats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.carte h3 {
-    margin: 15px 0 10px;
-    font-size: 1.5em;
-    color: var(--text-color); /* Dark Blue for titles */
+/* Responsive : 1 colonne sur mobile */
+@media (max-width: 480px) {
+    .plats-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
-.carte p {
-    color: #ffffff;
-    font-size: 0.9em;
-}
 
-/* Hover effect */
-.conteneur-texte {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity 0.8s ease, max-height 0.8s ease;
-    background: #555252;
-    padding: 0 10px;
-    border: 1px solid #ddd;
-}
 
-.carte:hover .conteneur-texte {
-    opacity: 1;
-    max-height: 200px;
-    padding: 10px;
-}
 
-/* Image  background */
+/* Background accueil */
 .background-container {
     background-image: url(../assets/beef-stew.jpg);
     background-size: cover;
@@ -192,7 +215,7 @@ button a:hover {
 }
 
 .box {
-    background: rgba(253, 204, 175, 0.8);
+    background: var(--card-background);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -202,9 +225,24 @@ button a:hover {
 }
 
 /* Footer */
-.aucun{
+.aucun {
     text-align: center;
     font-size: 1.2rem;
     color: #666;
     margin-top: 20px;
+}
+
+
+
+/*  768px  */
+
+/* ✅ Écrans larges (1024px et plus) */
+@media (min-width: 1024px) {
+    .recettes {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .caracteristiques {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }

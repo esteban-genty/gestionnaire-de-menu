@@ -7,14 +7,20 @@ if (session_status() == PHP_SESSION_NONE) {
 
 session_destroy();
 
-// Récupération des recettes depuis la base de données
+
+// Récupération des plats depuis la base de données
 try {
-    $sql = "SELECT id, titre, description, image, temps_preparation, ingredients FROM recettes LIMIT 8";
-    $stmt = $pdo->query($sql);
-    $recettes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    die("Erreur lors de la récupération des recettes : " . $e->getMessage());
+  $sql = "SELECT plat_id, categories_plat, titre_plat, description_plat, prix_plat, image_plat FROM plats LIMIT 8";
+  $stmt = $pdo->query($sql);
+  $plats = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  //echo "<pre>";
+  //var_dump($plats);
+  //echo "</pre>";
+  } 
+catch (PDOException $e) {
+  die("Erreur lors de la récupération des plats : " . $e->getMessage());
 }
+
 
 ?>
 
@@ -212,38 +218,44 @@ try {
 </div>
 </div>
 </section>
-    <!-- Affichage des recettes dynamiques -->
 
-<section class="recettes">
-    <?php if (!empty($recettes)): ?>
-        <?php foreach ($recettes as $recette): ?>
-            <article>
-                <div class="carte">
-                    <!-- Vérification si l'image est présente -->
-                    <img src="<?php echo !empty($recette['image']) ? 'assets/' . htmlspecialchars($recette['image']) : 'assets/default.jpg'; ?>" alt="<?php echo htmlspecialchars($recette['titre']); ?>">
-                    <h3><?= htmlspecialchars($recette['titre']) ?></h3>
-                    <div class="temps-box">
-                        <!-- Affichage du temps de préparation -->
-                        <p><?= htmlspecialchars($recette['temps_preparation']) ?> min</p>
-                    </div>
-                    <div>
-                        <p>Ingrédients :</p>
-                    </div>
-                    <div class="conteneur-texte">
+<section class="plats">
+    <h2>Nos Plats</h2>
+    <div class="plats-container">
+        <?php if (!empty($plats)): ?>
+            <?php foreach ($plats as $plat): ?>
+                <article>
+                    <div class="carte">
                         <?php
-                        $ingredients = explode(',', $recette['ingredients']);
-                        foreach ($ingredients as $ingredient) {
-                            echo "<p>- " . htmlspecialchars(trim($ingredient)) . "</p>";
+                        // Vérification et affichage de l'image du plat
+                        $imagePath = !empty($plat['image_plat']) ? $plat['image_plat'] : 'assets/default-plat.jpg';
+                        if (!filter_var($imagePath, FILTER_VALIDATE_URL)) {
+                            $imagePath = 'assets/' . $plat['image_plat'];
+                            if (!file_exists($imagePath)) {
+                                $imagePath = 'assets/default-plat.jpg'; // Image par défaut
+                            }
                         }
                         ?>
+                        
+                        <img src="<?= htmlspecialchars($imagePath) ?>" alt="<?= htmlspecialchars($plat['titre_plat'] ?? 'Plat sans titre') ?>">
+
+                        <h3><?= htmlspecialchars($plat['titre_plat'] ?? 'Titre inconnu') ?></h3>
+                        <p><strong>Catégorie :</strong> <?= htmlspecialchars($plat['categories_plat'] ?? 'Non spécifié') ?></p>
+                        <p><strong>Description :</strong> <?= htmlspecialchars($plat['description_plat'] ?? 'Pas de description') ?></p>
+                        <p><strong>Prix :</strong> <?= !empty($plat['prix_plat']) ? htmlspecialchars($plat['prix_plat']) . ' €' : 'Prix non disponible' ?></p>
                     </div>
-                </div>
-            </article>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <p class="aucun">Aucune recette disponible pour le moment.</p>
-    <?php endif; ?>
+                </article>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p class="aucun">Aucun plat disponible pour le moment.</p>
+        <?php endif; ?>
+    </div>
 </section>
+
+
+
+
+
 
     <!-- Réseaux sociaux -->
     <div class="social-media">
