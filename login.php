@@ -1,15 +1,12 @@
 <?php
-
+// Démarrer la session si ce n'est pas déjà fait
+session_start();
 require_once(__DIR__ . '/start.php');
 
 // Vérification si le formulaire est soumis
-
-//var_dump($_POST);
-
 if (isset($_POST['email'])) {
     $email = $_POST['email'] ?? null;
     $password = $_POST['password'] ?? null;
-    //var_dump('je suis dedans bordel');
 
     if ($email && $password) {
         // Requête pour récupérer l'utilisateur avec cet email
@@ -17,31 +14,30 @@ if (isset($_POST['email'])) {
         $stmt->bindParam(':mail', $email, PDO::PARAM_STR);
         $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        //var_dump($user);
 
         if ($user) {
             // Vérification du mot de passe
-            if ( $user ['mdp']==md5($password)) {
-                // Si le mot de passe est correct, rediriger vers une page sécurisée
-
-                //SESSION pour garder les données de l'utilisateur aprés la verification 
+            if ($user['mdp'] == md5($password)) {
+                // Si le mot de passe est correct, enregistrer les données de l'utilisateur dans la session
                 $_SESSION['utilisateur'] = $user;
-                header("Location: accueil.php");
 
-                exit();
+                // Redirection vers une page sécurisée (par exemple, le dashboard)
+                header("Location: dashboard.php");
+                exit(); // Assurez-vous que le script s'arrête après la redirection
             } else {
                 $error = "Mot de passe incorrect. Veuillez réessayer.";
             }
         } else {
             $error = "Utilisateur introuvable. Veuillez vous inscrire.";
-            header("Location: redirection.php");
+            // Si l'utilisateur n'est pas trouvé, redirige vers la page d'inscription
+            header("Location: inscription.php");
+            exit();
         }
     } else {
         $error = "Veuillez remplir tous les champs.";
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -51,7 +47,7 @@ if (isset($_POST['email'])) {
     <meta name="keywords" content="Carteo, Recette, Restaurant, Gestion de recette">
     <meta name="author" content="Estéban, Antoine, Lamine, Sébastien">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carteo - Inscritpion</title>
+    <title>Carteo - Connexion</title>
 
     <!-- Fichier styles -->
     <link rel="stylesheet" href="styles/header.css">
@@ -76,7 +72,7 @@ if (isset($_POST['email'])) {
         <h1>Connexion</h1>
 
         <section class="formsection">
-            <form action="dashboard.php" method="post">
+            <form action="login.php" method="post">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" required>
 
@@ -94,5 +90,4 @@ if (isset($_POST['email'])) {
         <?php endif; ?>
     </main>
 </body>
-
 </html>

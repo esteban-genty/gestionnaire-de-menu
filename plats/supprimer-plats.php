@@ -1,4 +1,17 @@
-<?php require_once(__DIR__ . '/../start.php') ?>
+<?php 
+
+// Démarrer la session si ce n'est pas déjà fait
+session_start();
+var_dump($_SESSION);
+
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['utilisateur'])) {
+    // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
+    header("Location: login.php");
+    exit;
+}
+
+require_once(__DIR__ . '/../start.php') ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -14,7 +27,7 @@
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="../styles/supprimer.css">
     <link rel="stylesheet" href="../styles/root.css">
-    <link rel="stylesheet" href="../styles/foooter.css">
+    <link rel="stylesheet" href="../styles/footer.css">
 
 
     <!-- Police d'écriture -->

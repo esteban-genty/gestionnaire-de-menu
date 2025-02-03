@@ -1,4 +1,17 @@
-<?php require_once(__DIR__ . '/start.php');?>
+<?php 
+
+// Démarrer la session si ce n'est pas déjà fait
+session_start();
+
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['utilisateur'])) {
+    // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
+    header("Location: login.php");
+    exit;
+}
+
+
+require_once(__DIR__ . '/start.php');?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,12 +54,12 @@
     </div>
     <div class="infos">
       <div class="infos-left">
-        <h3>categories - Menus</h3>
+        <h3>Plats</h3>
         <span>nombre:</span>
       </div>
       <div class="infos-right">
         <ul>
-          <li><a href="" class="btn-add">ajouter</a></li>
+          <li><a href="plats/ajouter-plats.php" class="btn-add">ajouter</a></li>
           <li><a href="" class="btn-edit">modifier</a></li>
           <li><a href="" class="btn-delete">supprimer</a></li>
         </ul>

@@ -3,8 +3,6 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-
-session_destroy();
 //var_dump($_SESSION);
 //echo $_SESSION['utilisateurId']['utilisateur_id'];
 ?>
@@ -126,7 +124,7 @@ session_destroy();
   color: white;
   font-size: 2rem;
   padding: 15px;
-  border-radius: 50%;
+  border-radius: 40%;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
