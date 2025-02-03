@@ -15,5 +15,6 @@
     $bddPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     session_start();
-    // var_dump(value : $_SESSION['user'])
+    //var_dump(value : $_SESSION['utilisateur']);
+    // var_dump(value : $_SESSION); exit();
 ?>
