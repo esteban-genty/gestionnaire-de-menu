@@ -237,7 +237,7 @@ catch (PDOException $e) {
                         }
                         ?>
                         
-                        <img src="<?= htmlspecialchars($imagePath) ?>" alt="<?= htmlspecialchars($plat['titre_plat'] ?? 'Plat sans titre') ?>">
+                       
 
                         <h3><?= htmlspecialchars($plat['titre_plat'] ?? 'Titre inconnu') ?></h3>
                         <p><strong>Catégorie :</strong> <?= htmlspecialchars($plat['categories_plat'] ?? 'Non spécifié') ?></p>
