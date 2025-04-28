@@ -1,0 +1,103 @@
+header {
+    background-color: #EE7121;
+    display: flex;
+    align-items: center;
+    height: 80px;
+    justify-content: center;
+
+    nav {
+        width: 88%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+        }
+
+        .nav-left {
+            font-size: 2.3rem;
+        }
+
+        a,
+        .carteo a {
+            text-decoration: none;
+            color: #512314;
+            font-family: roboto, sans-serif;
+            font-weight: bold;
+        }
+
+        .carteo a {
+            font-size: 3rem;
+        }
+
+        .nav-left h5 {
+            font-family: "Lobster", sans-serif;
+            
+        }
+        .nav-left h5:hover {
+            transform: scale(1.05);
+            
+        }
+        button {
+            background-color: #db9f1dc5;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #512314; /* Couleur de texte */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        button:hover {
+            transform: scale(1.05); 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+        }
+
+        .btn-connexion {
+            display: block;
+            background-color: #512314;
+            font-size: 1rem;
+            color: #F4EBDC;
+            padding: 10px 20px;
+            border-radius: 15px;
+        }
+
+        .btn-inscription {
+            display: block;
+            font-size: 1rem;
+            border: 3px solid #512314;
+            color: #512314;
+            padding: 7px 17px;
+            border-radius: 15px;
+        }
+
+        .btn-connexion:hover {
+            background-color: #512314;
+            color: #EE7121;
+        }
+
+        .btn-inscription:hover {
+            background-color: #512314;
+            color: #F4EBDC;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header .btn-connexion {
+        display: none;
+    }
+}
